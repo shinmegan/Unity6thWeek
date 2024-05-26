@@ -9,6 +9,14 @@ public class PlayerController : MonoBehaviour
     public float moveSpeed;
     private Vector2 curMovementInput;
 
+    [Header("Look")]
+    public Transform cameraContainer;
+    public float minXLook;
+    public float maxXLook;
+    private float camCurXRot;
+    public float lookSensitivity; // 카메라 회전 민감도
+    private Vector2 mouseDelta;
+
     private Rigidbody _rigidbody;
 
     private void Awake()
@@ -28,8 +36,13 @@ public class PlayerController : MonoBehaviour
         Move();
     }
 
+    private void LateUpdate()
+    {
+        CameraLook();
+    }
+
     // 플레이어 이동 처리 메서드
-    private void Move()
+    void Move()
     {   // 방향설정: W(0,1)와 S(0,-1) + A(-1,0)와 D(1,0)
         Vector3 dir = transform.forward * curMovementInput.y + transform.right * curMovementInput.x;
         dir *= moveSpeed;
@@ -38,7 +51,17 @@ public class PlayerController : MonoBehaviour
         _rigidbody.velocity = dir; // 새로운 속도 설정
     }
 
-    // 키 입력을 받아오는 메서드
+    // 카메라 회전 처리 메서드(카메라만 회전)
+    void CameraLook()
+    {
+        camCurXRot += mouseDelta.y * lookSensitivity;
+        camCurXRot = Mathf.Clamp(camCurXRot, minXLook, maxXLook);
+        cameraContainer.localEulerAngles = new Vector3(-camCurXRot, 0, 0);
+
+        transform.eulerAngles += new Vector3(0, mouseDelta.x * lookSensitivity, 0);
+    }
+
+    // WSAD 입력을 받아오는 메서드
     public void OnMove(InputAction.CallbackContext context)
     {
         if(context.phase == InputActionPhase.Performed) // 키를 누르고 있을 때
@@ -49,5 +72,11 @@ public class PlayerController : MonoBehaviour
         {
             curMovementInput = Vector2.zero; // 이동 입력값 초기화
         }
+    }
+
+    // 마우스 정보를 받아오는 메서드
+    public void OnLook(InputAction.CallbackContext context)
+    {
+        mouseDelta = context.ReadValue<Vector2>();
     }
 }
