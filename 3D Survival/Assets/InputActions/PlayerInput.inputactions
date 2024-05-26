@@ -24,6 +24,15 @@
                     "initialStateCheck": true
                 },
                 {
+                    "name": "Jump",
+                    "type": "Button",
+                    "id": "7c1eadc1-b0bf-4225-8d7c-76cdf4c30127",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
                     "name": "Inventory",
                     "type": "Button",
                     "id": "0be59a69-2fda-442b-afbc-96341bd566ed",
@@ -45,15 +54,6 @@
                     "name": "Attack",
                     "type": "Button",
                     "id": "ef2f8bb5-228d-4593-9a2c-33818d0f1832",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "Jump",
-                    "type": "Button",
-                    "id": "7c1eadc1-b0bf-4225-8d7c-76cdf4c30127",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -151,23 +151,23 @@
                 },
                 {
                     "name": "",
-                    "id": "a2755c53-dced-47a9-ad61-f0f5d2252e83",
-                    "path": "<Keyboard>/space",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard&Mouse",
-                    "action": "Jump",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "01105412-b701-4f5e-b851-9430b07adf21",
                     "path": "<Mouse>/leftButton",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard&Mouse",
                     "action": "Attack",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "a2755c53-dced-47a9-ad61-f0f5d2252e83",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "Jump",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
