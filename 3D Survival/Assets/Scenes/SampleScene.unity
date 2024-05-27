@@ -291,7 +291,7 @@ MonoBehaviour:
   curValue: 0
   startValue: 100
   maxValue: 100
-  passiveValue: 5
+  passiveValue: 3
   uiBar: {fileID: 827616618}
 --- !u!1 &661887902
 GameObject:
@@ -965,6 +965,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 55
   jumpPower: 80
+  isJumpOn: 0
   cameraContainer: {fileID: 1666965192}
   minXLook: -85
   maxXLook: 85
@@ -997,6 +998,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   uICondition: {fileID: 0}
+  controller: {fileID: 1242131069}
+  onJumpStaminaDecay: 50
   noHungerHealthDecay: 2
 --- !u!1 &1666857022
 GameObject:

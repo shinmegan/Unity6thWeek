@@ -34,6 +34,6 @@ public class Condition : MonoBehaviour
 
     public void Subtract(float value)
     {   // Mathf.Max(A, B) A, B 중 더 큰 값을 반환
-        curValue = Mathf.Max(curValue - value, maxValue);
+        curValue = Mathf.Max(curValue - value, 0f);
     }
 }

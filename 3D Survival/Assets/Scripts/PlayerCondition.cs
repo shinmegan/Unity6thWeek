@@ -5,12 +5,16 @@ using UnityEngine;
 public class PlayerCondition : MonoBehaviour
 {
     public UICondition uICondition;
+    public PlayerController controller;
 
     Condition health { get { return uICondition.health;  } }
     Condition hunger { get { return uICondition.hunger; } }
     Condition stamina { get { return uICondition.stamina; } }
+    
+    bool isJumpOn { get { return controller.isJumpOn; } } // 점프 키 눌렀을 때 true 반환
 
-    public float noHungerHealthDecay;
+    public float onJumpStaminaDecay; // 점프 시 스테미나 감소되는 값
+    public float noHungerHealthDecay; //배고픔 이후 체력 감소되는 값
 
     void Update()
     {
@@ -25,6 +29,11 @@ public class PlayerCondition : MonoBehaviour
         if(health.curValue == 0f)
         {
             Die();
+        }
+        // 점프시 스태미나 소모
+        if(isJumpOn && stamina.curValue > 0)
+        {
+            stamina.Subtract(onJumpStaminaDecay * Time.deltaTime); //Time.deltaTime = 0.2
         }
     }
 

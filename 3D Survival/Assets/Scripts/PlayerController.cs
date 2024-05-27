@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour
 
     [Header("Jump")]
     public float jumpPower;
+    public bool isJumpOn = false;
 
     [Header("Look")]
     public Transform cameraContainer; // 회전할 오브젝트
@@ -98,6 +99,15 @@ public class PlayerController : MonoBehaviour
         if(context.phase == InputActionPhase.Started && IsGrounded())
         {
             _rigidbody.AddForce(Vector2.up * jumpPower, ForceMode.Impulse);
+            // 점프 확인
+            isJumpOn = true;
+        }
+        else if (context.phase == InputActionPhase.Canceled
+                || context.phase == InputActionPhase.Waiting
+                || (context.phase == InputActionPhase.Performed && !IsGrounded())
+                || (context.phase == InputActionPhase.Started && !IsGrounded()))
+        {
+            isJumpOn = false;
         }
     }
 
