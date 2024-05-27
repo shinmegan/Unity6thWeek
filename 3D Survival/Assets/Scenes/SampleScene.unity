@@ -650,7 +650,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Magnificent Rock
+  m_text: Object Name
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1168,6 +1168,8 @@ GameObject:
   m_Component:
   - component: {fileID: 840260313}
   - component: {fileID: 840260314}
+  - component: {fileID: 840260315}
+  - component: {fileID: 840260316}
   m_Layer: 0
   m_Name: jump02
   m_TagString: Untagged
@@ -1242,6 +1244,41 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!65 &840260315
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 840260312}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.7066667, y: 1.7066667, z: 0.2}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &840260316
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 840260312}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c9766202d022b741ac47acb1d95fb44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectName: Wooden Sign
+  objectDescription: a sign that tells you the location of the jumping pad
 --- !u!114 &945159012
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1896,7 +1933,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: a brightly colored plant that grows in the shadow of a rock
+  m_text: Description
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1959,7 +1996,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: -160.88245, w: -214.80582}
+  m_margin: {x: 0, y: 0, z: -141.14795, w: -214.80582}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -2708,6 +2745,7 @@ GameObject:
   - component: {fileID: 1767238192}
   - component: {fileID: 1767238193}
   - component: {fileID: 1767238194}
+  - component: {fileID: 1767238195}
   m_Layer: 0
   m_Name: jump01
   m_TagString: Untagged
@@ -2803,6 +2841,20 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.7066667, y: 1.7066667, z: 0.2}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1767238195
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1767238191}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c9766202d022b741ac47acb1d95fb44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectName: Wooden Sign
+  objectDescription: a sign that tells you the location of the jumping pad
 --- !u!1 &1774236505
 GameObject:
   m_ObjectHideFlags: 0
@@ -9478,6 +9530,7 @@ GameObject:
   - component: {fileID: 64806562443128961}
   - component: {fileID: 4114348813877261227}
   - component: {fileID: 4114348813877261228}
+  - component: {fileID: 4114348813877261229}
   m_Layer: 0
   m_Name: JumpStump
   m_TagString: JumpStump
@@ -9570,6 +9623,20 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.7683192, y: 0.3852175, z: 0.75038457}
   m_Center: {x: -0.0051141083, y: 0.185841, z: 0.008936077}
+--- !u!114 &4114348813877261229
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4114348813874360234}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c9766202d022b741ac47acb1d95fb44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectName: Jumping Pad
+  objectDescription: a nature-friendly jumping pad shaped like the base of a tree
 --- !u!1 &4163871760041324863
 GameObject:
   m_ObjectHideFlags: 0
