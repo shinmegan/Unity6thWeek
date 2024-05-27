@@ -60,7 +60,6 @@ public class PlayerController : MonoBehaviour
         Vector3 dir = transform.forward * curMovementInput.y + transform.right * curMovementInput.x;
         dir *= moveSpeed;
         dir.y = _rigidbody.velocity.y; // 현재 y 속도 유지(점프하거나 중력에 의해 떨어지는 경우를 처리)
-
         _rigidbody.velocity = dir; // 새로운 속도 설정
     }
 
@@ -70,7 +69,6 @@ public class PlayerController : MonoBehaviour
         camCurXRot += mouseDelta.y * lookSensitivity;
         camCurXRot = Mathf.Clamp(camCurXRot, minXLook, maxXLook);
         cameraContainer.localEulerAngles = new Vector3(-camCurXRot, 0, 0);
-
         transform.eulerAngles += new Vector3(0, mouseDelta.x * lookSensitivity, 0);
     }
 
@@ -142,7 +140,6 @@ public class PlayerController : MonoBehaviour
             // 마우스 커서가 보이고 카메라 회전 막기
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
-            
             isSettingsOpen = true;
         }
         else if (context.phase == InputActionPhase.Started && isSettingsOpen ) // 키를 한 번 더 눌렀을 때
@@ -151,7 +148,6 @@ public class PlayerController : MonoBehaviour
             // 마우스 커서 감추고 카메라 회전 시작
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
-            
             isSettingsOpen = false;
         }
     }
