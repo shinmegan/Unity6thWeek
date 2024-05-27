@@ -33,7 +33,7 @@ public class PlayerCondition : MonoBehaviour
         // 점프시 스태미나 소모
         if(isJumpOn && stamina.curValue > 0)
         {
-            stamina.Subtract(onJumpStaminaDecay * Time.deltaTime); //Time.deltaTime = 0.2
+            stamina.Subtract(onJumpStaminaDecay * Time.deltaTime); 
         }
     }
 
