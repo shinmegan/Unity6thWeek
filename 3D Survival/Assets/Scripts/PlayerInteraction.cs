@@ -8,17 +8,17 @@ public class PlayerInteraction : MonoBehaviour
     public TextMeshProUGUI objectNameText; // 오브젝트 이름을 표시할 UI 텍스트
     public TextMeshProUGUI objectDescriptionText; // 오브젝트 설명을 표시할 UI 텍스트
 
-    private Camera _camera;
+    private Transform playerTransform;
 
     private void Start()
     {
-        _camera = Camera.main; // 메인 카메라 가져오기
+        playerTransform = transform; // 플레이어의 Transform을 가져오기
     }
 
     private void Update()
     {
-        // 카메라 기준으로 정면으로 레이 발사
-        Ray ray = new Ray(_camera.transform.position, _camera.transform.forward);
+        // 플레이어 기준으로 정면으로 레이 발사
+        Ray ray = new Ray(playerTransform.position, playerTransform.forward);
         RaycastHit hit;
 
         // 레이캐스트로 충돌 감지
