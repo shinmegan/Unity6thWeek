@@ -1,8 +1,12 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.XR;
 
 public class PlayerController : MonoBehaviour
 {
+    public PlayerCondition condition;
+    bool isEnoughStamina { get { return condition.isEnoughStamina; } } // 스태미나가 충분하면 true 반환
+
     [Header("Movement")]
     public float moveSpeed;
     private Vector2 curMovementInput;
@@ -94,10 +98,11 @@ public class PlayerController : MonoBehaviour
     // Space 입력을 받아오는 메서드
     public void OnJump(InputAction.CallbackContext context)
     {
-        if(context.phase == InputActionPhase.Started && IsGrounded())
+        // 스페이스 입력 + 지면 + 스테미나 충분
+        if(context.phase == InputActionPhase.Started && IsGrounded() && isEnoughStamina)
         {
             _rigidbody.AddForce(Vector2.up * jumpPower, ForceMode.Impulse);
-            // 점프 확인
+            // 점프 가능
             isJumpOn = true;
         }
         else if (context.phase == InputActionPhase.Canceled
