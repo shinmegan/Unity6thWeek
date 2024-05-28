@@ -15,13 +15,13 @@ public class DayNightCycle : MonoBehaviour
     public Light sun; // 태양 광원
     public Gradient sunColor; // 태양의 색상 그라디언트
     public AnimationCurve sunIntensity; // 태양의 강도 곡선
-    public AudioSource sunAudioSource; // 태양 오디오 소스 추가
+    AudioSource sunAudioSource { get { return SoundManager.Instance.sunAudioSource; } } // 태양 오디오 소스
 
     [Header("Moon")] // 달 관련 설정 섹션
     public Light moon; // 달 광원
     public Gradient moonColor; // 달의 색상 그라디언트
     public AnimationCurve moonIntensity; // 달의 강도 곡선
-    public AudioSource moonAudioSource; // 달 오디오 소스 추가
+    AudioSource moonAudioSource { get { return SoundManager.Instance.moonAudioSource; } } // 달 오디오 소스
 
     [Header("Other Lighting")] // 기타 조명 설정 섹션
     public AnimationCurve lightingIntensityMultiplier; // 조명 강도 곡선
