@@ -4,8 +4,7 @@ using UnityEngine.InputSystem.XR;
 
 public class PlayerController : MonoBehaviour
 {
-    public PlayerCondition condition;
-    bool isEnoughStamina { get { return condition.isEnoughStamina; } } // 스태미나가 충분하면 true 반환
+    bool isEnoughStamina { get { return CharacterManager.Instance.Player.condition.isEnoughStamina; } } // 스태미나가 충분하면 true 반환
 
     [Header("Movement")]
     public float moveSpeed;

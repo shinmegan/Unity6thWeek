@@ -12,13 +12,12 @@ public interface IDamagable
 public class PlayerCondition : MonoBehaviour, IDamagable
 {
     public UICondition uICondition;
-    public PlayerController controller;
 
     Condition health { get { return uICondition.health;  } }
     Condition hunger { get { return uICondition.hunger; } }
     Condition stamina { get { return uICondition.stamina; } }
     
-    bool isJumpOn { get { return controller.isJumpOn; } } // 점프 키 눌렀을 때 true 반환
+    bool isJumpOn { get { return CharacterManager.Instance.Player.controller.isJumpOn; } } // 점프 키 눌렀을 때 true 반환
 
     public float onJumpStaminaDecay; // 점프 시 스테미나 감소되는 값
     public float noHungerHealthDecay; // 배고픔 이후 체력 감소되는 값
