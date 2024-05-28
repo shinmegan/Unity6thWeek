@@ -13,6 +13,7 @@ public class BoatController : MonoBehaviour
     private Quaternion endRotation; // 도착 회전(-90도)
     private Rigidbody rb;
     private PlayerController playerController;
+    private Transform playerTransform; // 플레이어의 Transform
 
     private void Awake()
     {
@@ -64,8 +65,8 @@ public class BoatController : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            other.transform.parent = transform; // 플레이어를 보트의 자식으로 설정(함께 이동)
-            Debug.Log("탑승");
+            playerTransform = other.transform; // 플레이어의 Transform 저장
+            Debug.Log("탑승 완료");
         }
     }
 
@@ -73,8 +74,8 @@ public class BoatController : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            other.transform.parent = null; // 플레이어를 보트의 자식에서 해제
-            Debug.Log("미탑승");
+            playerTransform = null; // 플레이어의 Transform 해제
+            Debug.Log("탑승 해제");
         }
     }
 }
