@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class DamageIndicator : MonoBehaviour
 {
+    AudioSource hurtAudioSource { get {return SoundManager.Instance.hurtAudioSource; } }
     public Image image;
     public float flashSpeed; // 깜빡이는 속도
 
@@ -25,6 +26,9 @@ public class DamageIndicator : MonoBehaviour
         image.enabled = true; // 이미지 켜기
         image.color = new Color(1f, 89f / 255f, 89f / 255f);
         coroutine = StartCoroutine(FadeAway());
+
+        // 효과음 재생
+        hurtAudioSource.Play();
     }
 
     private IEnumerator FadeAway()

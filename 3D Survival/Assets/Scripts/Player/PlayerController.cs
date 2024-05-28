@@ -6,6 +6,7 @@ public class PlayerController : MonoBehaviour
 {
     bool isEnoughStamina { get { return CharacterManager.Instance.Player.condition.isEnoughStamina; } } // 스태미나가 충분하면 true 반환
     bool isDead { get { return CharacterManager.Instance.Player.condition.isDead; } }
+    AudioSource jumpAudioSource { get { return SoundManager.Instance.jumpAudioSource; } }
     public Transform _transform;
 
     [Header("Movement")]
@@ -106,6 +107,8 @@ public class PlayerController : MonoBehaviour
             _rigidbody.AddForce(Vector2.up * jumpPower, ForceMode.Impulse);
             // 점프 가능
             isJumpOn = true;
+            // 효과음 재생
+            jumpAudioSource.Play();
         }
         else if (context.phase == InputActionPhase.Canceled
                 || context.phase == InputActionPhase.Waiting

@@ -4,10 +4,14 @@ using UnityEngine;
 
 public class SoundManager : MonoBehaviour
 {
-    public AudioSource waterAudioSource; // 물소리 오디오 소스
-    public AudioSource campfireAudioSource; // 캠프 파이어 오디오 소스
-    public AudioSource sunAudioSource; // 태양 오디오 소스
-    public AudioSource moonAudioSource; // 달 오디오 소스
+    public AudioSource waterAudioSource; // 물소리 오디오
+    public AudioSource campfireAudioSource; // 캠프 파이어 오디오
+    public AudioSource sunAudioSource; // 태양 오디오
+    public AudioSource moonAudioSource; // 달 오디오
+    public AudioSource hurtAudioSource; // 데미지 오디오
+    public AudioSource jumpAudioSource; // 점프 오디오
+    public AudioSource jumpPadAudioSource; // 점프대 오디오
+
     Transform playerTransform { get { return CharacterManager.Instance.Player.controller._transform; } }
 
     public float maxDistance = 5f; // 최대 거리
