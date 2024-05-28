@@ -5,6 +5,7 @@ using UnityEngine.InputSystem.XR;
 public class PlayerController : MonoBehaviour
 {
     bool isEnoughStamina { get { return CharacterManager.Instance.Player.condition.isEnoughStamina; } } // 스태미나가 충분하면 true 반환
+    public Transform _transform;
 
     [Header("Movement")]
     public float moveSpeed;
@@ -43,6 +44,7 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
+        _transform = GetComponent<Transform>(); 
         if (!isSettingsOpen) // 설정창이 열려있지 않을 때만 이동 처리
         {
             Move();

@@ -12,7 +12,6 @@ public class BoatController : MonoBehaviour
     private Quaternion startRotation; // 시작 회전(90도)
     private Quaternion endRotation; // 도착 회전(-90도)
     private Rigidbody rb;
-    private PlayerController playerController;
     private Transform playerTransform; // 플레이어의 Transform
 
     private void Awake()

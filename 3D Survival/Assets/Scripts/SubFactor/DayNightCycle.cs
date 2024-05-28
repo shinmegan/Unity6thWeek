@@ -15,11 +15,13 @@ public class DayNightCycle : MonoBehaviour
     public Light sun; // 태양 광원
     public Gradient sunColor; // 태양의 색상 그라디언트
     public AnimationCurve sunIntensity; // 태양의 강도 곡선
+    public AudioSource sunAudioSource; // 태양 오디오 소스 추가
 
     [Header("Moon")] // 달 관련 설정 섹션
     public Light moon; // 달 광원
     public Gradient moonColor; // 달의 색상 그라디언트
     public AnimationCurve moonIntensity; // 달의 강도 곡선
+    public AudioSource moonAudioSource; // 달 오디오 소스 추가
 
     [Header("Other Lighting")] // 기타 조명 설정 섹션
     public AnimationCurve lightingIntensityMultiplier; // 조명 강도 곡선
@@ -29,31 +31,38 @@ public class DayNightCycle : MonoBehaviour
     {
         timeRate = 1.0f / fullDayLength; // 하루 길이에 따른 시간 비율 계산
         time = startTime; // 초기 시간 설정
+        sunAudioSource.Play(); // 태양 오디오 소스는 처음부터 활성화
     }
 
     private void Update()
     {
         time = (time + timeRate * Time.deltaTime) % 1.0f; // 시간 업데이트 및 하루 주기 계산
 
-        UpdateLighting(sun, sunColor, sunIntensity); // 태양 조명 업데이트
-        UpdateLighting(moon, moonColor, moonIntensity); // 달 조명 업데이트
+        UpdateLighting(sun, sunColor, sunIntensity, sunAudioSource); // 태양 조명 및 오디오 업데이트
+        UpdateLighting(moon, moonColor, moonIntensity, moonAudioSource); // 달 조명 및 오디오 업데이트
 
         RenderSettings.ambientIntensity = lightingIntensityMultiplier.Evaluate(time); // 환경 조명 강도 업데이트
         RenderSettings.reflectionIntensity = reflectionIntensityMultiplier.Evaluate(time); // 반사 강도 업데이트
     }
 
-    void UpdateLighting(Light lightSource, Gradient colorGradiant, AnimationCurve intensityCurve)
+    void UpdateLighting(Light lightSource, Gradient colorGradiant, AnimationCurve intensityCurve, AudioSource audioSource)
     {
-        float intensity = intensityCurve.Evaluate(time); // 현재 시간에 따른 강도 계산
+        float intensity = intensityCurve.Evaluate(time);
 
-        lightSource.transform.eulerAngles = (time - (lightSource == sun ? 0.25f : 0.75f)) * noon * 4.0f; // 광원의 각도 업데이트
-        lightSource.color = colorGradiant.Evaluate(time); // 광원의 색상 업데이트
-        lightSource.intensity = intensity; // 광원의 강도 업데이트
+        lightSource.transform.eulerAngles = (time - (lightSource == sun ? 0.25f : 0.75f)) * noon * 4.0f;
+        lightSource.color = colorGradiant.Evaluate(time);
+        lightSource.intensity = intensity;
 
         GameObject go = lightSource.gameObject;
-        if (lightSource.intensity == 0 && go.activeInHierarchy) // 강도가 0이면 광원을 비활성화
+        if (lightSource.intensity == 0 && go.activeInHierarchy)
+        {
             go.SetActive(false);
-        else if (lightSource.intensity > 0 && !go.activeInHierarchy) // 강도가 0보다 크면 광원을 활성화
+        }
+            
+        else if (lightSource.intensity > 0 && !go.activeInHierarchy)
+        {
             go.SetActive(true);
+        }
+            
     }
 }
