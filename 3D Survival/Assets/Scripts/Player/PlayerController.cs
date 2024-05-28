@@ -5,6 +5,7 @@ using UnityEngine.InputSystem.XR;
 public class PlayerController : MonoBehaviour
 {
     bool isEnoughStamina { get { return CharacterManager.Instance.Player.condition.isEnoughStamina; } } // 스태미나가 충분하면 true 반환
+    bool isDead { get { return CharacterManager.Instance.Player.condition.isDead; } }
     public Transform _transform;
 
     [Header("Movement")]
@@ -53,7 +54,7 @@ public class PlayerController : MonoBehaviour
 
     private void LateUpdate()
     {
-        if (!isSettingsOpen) // 설정창이 열려있지 않을 때만 카메라 회전 처리
+        if (!isSettingsOpen && !isDead) // 설정창이 열려있지 않을 때, 플레이어 생존 시 카메라 회전 처리
         {
             CameraLook();
         }

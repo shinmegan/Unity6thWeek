@@ -51,18 +51,18 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Attack",
+                    "name": "Setting",
                     "type": "Button",
-                    "id": "ef2f8bb5-228d-4593-9a2c-33818d0f1832",
+                    "id": "a03eedd0-3020-465a-bc29-7b09f44a2b1a",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Setting",
+                    "name": "Boost",
                     "type": "Button",
-                    "id": "a03eedd0-3020-465a-bc29-7b09f44a2b1a",
+                    "id": "19ecdb66-15bc-40c9-a959-cebaf59a37e7",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -160,17 +160,6 @@
                 },
                 {
                     "name": "",
-                    "id": "01105412-b701-4f5e-b851-9430b07adf21",
-                    "path": "<Mouse>/leftButton",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard&Mouse",
-                    "action": "Attack",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "a2755c53-dced-47a9-ad61-f0f5d2252e83",
                     "path": "<Keyboard>/space",
                     "interactions": "",
@@ -188,6 +177,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "Setting",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "42e7c09d-027e-4171-9794-9f5c1651bba7",
+                    "path": "<Keyboard>/shift",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Boost",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

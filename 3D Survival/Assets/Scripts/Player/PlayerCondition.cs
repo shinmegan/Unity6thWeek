@@ -21,7 +21,8 @@ public class PlayerCondition : MonoBehaviour, IDamagable
 
     public float onJumpStaminaDecay; // 점프 시 스테미나 감소되는 값
     public float noHungerHealthDecay; // 배고픔 이후 체력 감소되는 값
-    public bool isEnoughStamina = false; // 스태미나가 충분한지 확인 
+    public bool isEnoughStamina = false; // 스태미나가 충분한지 확인
+    public bool isDead = false; // 플레이어 사망 확인
 
     public event Action onTakeDamage;
 
@@ -40,6 +41,7 @@ public class PlayerCondition : MonoBehaviour, IDamagable
         if(health.curValue == 0f)
         {
             Die();
+            isDead = true;
         }
         // 점프시 스태미나가 소모
         if(isJumpOn)
