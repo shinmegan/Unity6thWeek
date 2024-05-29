@@ -27,6 +27,8 @@ public class PlayerCondition : MonoBehaviour, IDamagable
 
     public event Action onTakeDamage;
 
+    private bool isInvincible = false;
+
     void Update()
     {
         hunger.Subtract(hunger.passiveValue * Time.deltaTime); // 배고픔 상태 업데이트(감소)
@@ -71,6 +73,12 @@ public class PlayerCondition : MonoBehaviour, IDamagable
         StartCoroutine(EatOverTime(amount, duration));
     }
 
+    // 무적 아이템 사용시 데미지 무력화 메서드
+    public void Invincibility(float duration)
+    {
+        StartCoroutine(InvincibilityOverTime(duration));
+    }
+
 
     // 스킬 사용 시 마나를 감소하는 메서드
     public void UseSkill(float manaCost)
@@ -94,9 +102,12 @@ public class PlayerCondition : MonoBehaviour, IDamagable
 
     // 데미지 인터페이스
     public void TakePhysicalDamage(int damage)
-    {
-        health.Subtract(damage);
-        onTakeDamage?.Invoke(); // 이벤트에 등록된 메서드 호출
+    {   // 무적상태가 아니면, 데미지 받기
+        if (!isInvincible)
+        {
+            health.Subtract(damage);
+            onTakeDamage?.Invoke(); // 이벤트에 등록된 메서드 호출
+        }
     }
 
     // 스테미나 충분한 지 확인 하는 메서드
@@ -139,6 +150,20 @@ public class PlayerCondition : MonoBehaviour, IDamagable
             timer += Time.deltaTime;
             yield return null;
         }
+    }
+
+    // 무적 아이템 사용시 데미지를 안 받는 코루틴
+    private IEnumerator InvincibilityOverTime(float duration)
+    {
+        float timer = 0f;
+        while (timer < duration)
+        {
+            // 데미지 인터페이스 무효화
+            isInvincible = true;
+            timer += Time.deltaTime;
+            yield return null;
+        }
+        isInvincible = false;
     }
 
 }

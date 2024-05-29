@@ -202,6 +202,8 @@ public class UIInventory : MonoBehaviour
                         condition.Eat(consumable.value, consumable.duration); break;  // 일정 시간 배고픔 회복
                     case ConsumableType.Mana:
                         condition.RestoreMana(consumable.value, consumable.duration); break;  // 일정 시간 마나 회복
+                    case ConsumableType.Invincibility:
+                        condition.Invincibility(consumable.duration); break;  // 일정 시간 무적 상태
                 }
             }
             RemoveSelectedItem();  // 선택된 아이템 제거
