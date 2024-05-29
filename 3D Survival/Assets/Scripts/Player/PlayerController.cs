@@ -166,7 +166,7 @@ public class PlayerController : MonoBehaviour
             isSettingsOpen = false;
         }
     }
-
+    // Tab 입력을 받아오는 메서드
     public void OnInventory(InputAction.CallbackContext callbackContext)
     {
         if (callbackContext.phase == InputActionPhase.Started)
