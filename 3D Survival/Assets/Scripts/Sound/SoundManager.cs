@@ -11,6 +11,10 @@ public class SoundManager : MonoBehaviour
     public AudioSource hurtAudioSource; // 데미지 오디오
     public AudioSource jumpAudioSource; // 점프 오디오
     public AudioSource jumpPadAudioSource; // 점프대 오디오
+    public AudioSource moveAudioSource; // 이동 오디오
+
+    public AudioClip[] footstepClips; // 발걸음 소리 배열
+    public AudioClip jumpClip; // 점프 소리
 
     Transform playerTransform { get { return CharacterManager.Instance.Player.controller._transform; } }
 
@@ -56,5 +60,21 @@ public class SoundManager : MonoBehaviour
         // 캠프 파이어 소리 볼륨 조절
         float campfireDistance = Vector3.Distance(playerTransform.position, campfireAudioSource.transform.position);
         campfireAudioSource.volume = Mathf.Clamp(1 - (campfireDistance / maxDistance), 0, campfireMaxVolume);
+    }
+
+    // 발걸음 소리 재생 메서드
+    public void PlayFootstepSound()
+    {
+        if (footstepClips.Length > 0)
+        {
+            AudioClip clip = footstepClips[Random.Range(0, footstepClips.Length)];
+            moveAudioSource.PlayOneShot(clip);
+        }
+    }
+
+    // 점프 소리 재생 메서드
+    public void PlayJumpSound()
+    {
+        jumpAudioSource.PlayOneShot(jumpClip);
     }
 }

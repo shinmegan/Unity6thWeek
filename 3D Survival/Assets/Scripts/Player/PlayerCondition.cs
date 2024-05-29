@@ -16,7 +16,8 @@ public class PlayerCondition : MonoBehaviour, IDamagable
     Condition health { get { return uICondition.health;  } }
     Condition hunger { get { return uICondition.hunger; } }
     Condition stamina { get { return uICondition.stamina; } }
-    
+    Condition mana { get { return uICondition.mana; } }
+
     bool isJumpOn { get { return CharacterManager.Instance.Player.controller.isJumpOn; } } // 점프 키 눌렀을 때 true 반환
 
     public float onJumpStaminaDecay; // 점프 시 스테미나 감소되는 값
@@ -48,12 +49,33 @@ public class PlayerCondition : MonoBehaviour, IDamagable
         {
             stamina.Subtract(onJumpStaminaDecay * Time.deltaTime);
         }
+        // 스킬 사용시 마나 소모
+
     }
 
     // 아이템 사용시 체력 회복하는 메서드
     public void Heal(float amount)
     {
         health.Add(amount);
+    }
+
+    // 마나 회복 아이템 사용시 마나를 회복하는 메서드
+    public void RestoreMana(float amount)
+    {
+        mana.Add(amount);
+    }
+
+    // 스킬 사용 시 마나를 감소하는 메서드
+    public void UseSkill(float manaCost)
+    {
+        if (mana.curValue >= manaCost)
+        {
+            mana.Subtract(manaCost);
+        }
+        else
+        {
+            Debug.Log("마나가 부족합니다.");
+        }
     }
 
     // 음식 섭취시 배고픔 회복하는 메서드

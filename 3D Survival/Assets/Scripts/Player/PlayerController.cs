@@ -5,8 +5,7 @@ using UnityEngine.InputSystem.XR;
 public class PlayerController : MonoBehaviour
 {
     bool isEnoughStamina { get { return CharacterManager.Instance.Player.condition.isEnoughStamina; } } // 스태미나가 충분하면 true 반환
-    bool isDead { get { return CharacterManager.Instance.Player.condition.isDead; } }
-    AudioSource jumpAudioSource { get { return SoundManager.Instance.jumpAudioSource; } }
+    bool isDead { get { return CharacterManager.Instance.Player.condition.isDead; } } // 플레이어 사망 유무 확인
     public Transform _transform;
 
     [Header("Movement")]
@@ -108,7 +107,7 @@ public class PlayerController : MonoBehaviour
             // 점프 가능
             isJumpOn = true;
             // 효과음 재생
-            jumpAudioSource.Play();
+            SoundManager.Instance.PlayJumpSound();
         }
         else if (context.phase == InputActionPhase.Canceled
                 || context.phase == InputActionPhase.Waiting
