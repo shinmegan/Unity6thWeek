@@ -2,21 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
-public interface IInteractable
-{
-    public string GetInteractPrompt();
-    public void OnInteract();
-}
-
 public class ItemObject : MonoBehaviour, IInteractable
 {
     public ItemData data;
     // 아이템 정보 가져와서 표시하기
-    public string GetInteractPrompt()
+    public string GetInteractName()
     {
-        string str = $"{data.displayName}\n{data.description}";
+        string str = $"{data.displayName}";
         return str ;
+    }
+
+    public string GetInteractDescription()
+    {
+        string str = $"{data.description}";
+        return str;
     }
 
     public void OnInteract()

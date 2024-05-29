@@ -13,8 +13,7 @@ MonoBehaviour:
   m_Name: Item_Apple
   m_EditorClassIdentifier: 
   displayName: "\uC0AC\uACFC"
-  description: "\uCCB4\uB825\uC744 50 \uD68C\uBCF5\uD569\uB2C8\uB2E4.(\uD551\uD06C\uB098\uBB34\uC5D0\uC11C
-    \uC218\uD655 \uAC00\uB2A5)"
+  description: "\uCCB4\uB825\uC744 50 \uD68C\uBCF5\uD569\uB2C8\uB2E4.(\uD551\uD06C\uB098\uBB34)"
   type: 1
   icon: {fileID: 21300000, guid: a5d4ad23b3c5a0e46966951bee3420e3, type: 3}
   dropPrefab: {fileID: 308051847136892314, guid: d663e02eef5dd934ca6bcd92a24f93d4, type: 3}
