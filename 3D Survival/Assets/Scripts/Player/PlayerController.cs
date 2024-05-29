@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.XR;
@@ -32,6 +33,11 @@ public class PlayerController : MonoBehaviour
 
     private bool isSettingsOpen = false; // 설정창 활성화 상태를 관리하는 변수
 
+    [HideInInspector]
+    public bool canLook = true;
+
+    public Action inventory;
+
     private void Awake()
     {
         _rigidbody = GetComponent<Rigidbody>();
@@ -54,7 +60,7 @@ public class PlayerController : MonoBehaviour
 
     private void LateUpdate()
     {
-        if (!isSettingsOpen && !isDead) // 설정창이 열려있지 않을 때, 플레이어 생존 시 카메라 회전 처리
+        if (!isSettingsOpen && !isDead && canLook) // 설정창이 열려있지 않을 때, 플레이어 생존 시 카메라 회전 처리
         {
             CameraLook();
         }
@@ -159,5 +165,22 @@ public class PlayerController : MonoBehaviour
             Cursor.visible = false;
             isSettingsOpen = false;
         }
+    }
+
+    public void OnInventory(InputAction.CallbackContext callbackContext)
+    {
+        if (callbackContext.phase == InputActionPhase.Started)
+        {
+            inventory?.Invoke();  // 인벤토리 호출
+            ToggleCursor();  // 커서 토글
+        }
+    }
+
+    void ToggleCursor()
+    {
+        bool toggle = Cursor.lockState == CursorLockMode.Locked;  // 토글 상태
+        Cursor.lockState = toggle ? CursorLockMode.None : CursorLockMode.Locked;  // 커서 상태 변경
+        Cursor.visible = toggle ? true : false;
+        canLook = !toggle;  // 시점 전환 가능 여부(토글 값과 반대)
     }
 }

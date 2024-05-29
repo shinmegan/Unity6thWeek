@@ -54,16 +54,23 @@ public class PlayerCondition : MonoBehaviour, IDamagable
     }
 
     // 아이템 사용시 체력 회복하는 메서드
-    public void Heal(float amount)
+    public void Heal(float amount, float duration)
     {
-        health.Add(amount);
+        StartCoroutine(HealOverTime(amount, duration));
     }
 
     // 마나 회복 아이템 사용시 마나를 회복하는 메서드
-    public void RestoreMana(float amount)
+    public void RestoreMana(float amount, float duration)
     {
-        mana.Add(amount);
+        StartCoroutine(RestoreManaOverTime(amount, duration));
     }
+
+    // 음식 섭취시 배고픔 회복하는 메서드
+    public void Eat(float amount, float duration)
+    {
+        StartCoroutine(EatOverTime(amount, duration));
+    }
+
 
     // 스킬 사용 시 마나를 감소하는 메서드
     public void UseSkill(float manaCost)
@@ -76,12 +83,6 @@ public class PlayerCondition : MonoBehaviour, IDamagable
         {
             Debug.Log("마나가 부족합니다.");
         }
-    }
-
-    // 음식 섭취시 배고픔 회복하는 메서드
-    public void Eat(float amount) 
-    { 
-        hunger.Add(amount); 
     }
 
     // 체력이 소진되면 사망하는 메서드
@@ -103,4 +104,41 @@ public class PlayerCondition : MonoBehaviour, IDamagable
     {
         return isEnoughStamina = stamina.curValue > decay;
     }
+
+    // 아이템 사용시 체력 회복하는 코루틴
+    private IEnumerator HealOverTime(float amount, float duration)
+    {
+        float timer = 0f;
+        while (timer < duration)
+        {
+            health.Add(amount * (Time.deltaTime / duration));
+            timer += Time.deltaTime;
+            yield return null;
+        }
+    }
+
+    // 마나 회복 아이템 사용시 마나를 회복하는 코루틴
+    private IEnumerator RestoreManaOverTime(float amount, float duration)
+    {
+        float timer = 0f;
+        while (timer < duration)
+        {
+            mana.Add(amount * (Time.deltaTime / duration));
+            timer += Time.deltaTime;
+            yield return null;
+        }
+    }
+
+    // 음식 섭취시 배고픔 회복하는 코루틴
+    private IEnumerator EatOverTime(float amount, float duration)
+    {
+        float timer = 0f;
+        while (timer < duration)
+        {
+            hunger.Add(amount * (Time.deltaTime / duration));
+            timer += Time.deltaTime;
+            yield return null;
+        }
+    }
+
 }

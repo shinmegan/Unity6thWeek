@@ -20,6 +20,7 @@ public class ItemDataConsumable
 {
     public ConsumableType type;
     public float value; // 회복량
+    public float duration; // 회복 시간(기본값: 1이면 즉시 회복)
 }
 
 [CreateAssetMenu(fileName = "Item", menuName = "New Item")]

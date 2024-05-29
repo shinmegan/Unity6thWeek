@@ -90,8 +90,19 @@ public class PlayerInteraction : MonoBehaviour
     // 아이템 정보를 UI에 표시하는 메서드 (아이템)
     private void SetItemInfo(IInteractable curInteractable)
     {
-        objectImg.gameObject.SetActive(true);
+        objectImg.gameObject.SetActive(true); // 배경 이미지 활성화
         objectNameText.text = curInteractable.GetInteractName();
         objectDescriptionText.text = curInteractable.GetInteractDescription();  
+    }
+
+    // E 버튼 클릭 시, 인벤토리에 추가하는 메서드 실행
+    public void OnInteractInput(InputAction.CallbackContext context)
+    {
+        if (context.phase == InputActionPhase.Started && curInteractable != null)
+        {
+            curInteractable.OnInteract(); // 아이템 줍기
+            curInteractable = null; // 상호작용 초기화
+            ClearObjectInfo(); // 오브젝트 정보 초기화
+        } 
     }
 }
