@@ -24,6 +24,8 @@ public class Resource : MonoBehaviour
             //스태미나가 충분하다면, 자원 채집
             if (condition.EnoughStamina(stanimaDecay))
             {
+                // 효과음 재생
+                SoundManager.Instance.PlayAXSound();
                 condition.UseStamina(stanimaDecay);
                 if (capacity <= 0) break; // 용량 확인
 

@@ -6148,76 +6148,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 5a354059445b3474fbd658226ba1efdd, type: 3}
---- !u!1001 &1432427686
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 3771170556654949390}
-    m_Modifications:
-    - target: {fileID: 3756667009127085587, guid: 6c2d45e7989028840b9f6d151ee65d20, type: 3}
-      propertyPath: m_Name
-      value: Item_Fish2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4621012203338942973, guid: 6c2d45e7989028840b9f6d151ee65d20, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -12.002
-      objectReference: {fileID: 0}
-    - target: {fileID: 4621012203338942973, guid: 6c2d45e7989028840b9f6d151ee65d20, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.66199994
-      objectReference: {fileID: 0}
-    - target: {fileID: 4621012203338942973, guid: 6c2d45e7989028840b9f6d151ee65d20, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 12.4484825
-      objectReference: {fileID: 0}
-    - target: {fileID: 4621012203338942973, guid: 6c2d45e7989028840b9f6d151ee65d20, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 4621012203338942973, guid: 6c2d45e7989028840b9f6d151ee65d20, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4621012203338942973, guid: 6c2d45e7989028840b9f6d151ee65d20, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 4621012203338942973, guid: 6c2d45e7989028840b9f6d151ee65d20, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4621012203338942973, guid: 6c2d45e7989028840b9f6d151ee65d20, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4621012203338942973, guid: 6c2d45e7989028840b9f6d151ee65d20, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 90
-      objectReference: {fileID: 0}
-    - target: {fileID: 4621012203338942973, guid: 6c2d45e7989028840b9f6d151ee65d20, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5923769554386921689, guid: 6c2d45e7989028840b9f6d151ee65d20, type: 3}
-      propertyPath: moveDuration
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 6932584347631443425, guid: 6c2d45e7989028840b9f6d151ee65d20, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: e8231e5e093c804458795712745c4041, type: 2}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 6c2d45e7989028840b9f6d151ee65d20, type: 3}
---- !u!4 &1432427687 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4621012203338942973, guid: 6c2d45e7989028840b9f6d151ee65d20, type: 3}
-  m_PrefabInstance: {fileID: 1432427686}
-  m_PrefabAsset: {fileID: 0}
 --- !u!64 &1439896651
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -7865,9 +7795,8 @@ MonoBehaviour:
   sunAudioSource: {fileID: 705507996}
   moonAudioSource: {fileID: 409268789}
   hurtAudioSource: {fileID: 640470210}
-  jumpAudioSource: {fileID: 1242131075}
   jumpPadAudioSource: {fileID: 4114348813877261230}
-  moveAudioSource: {fileID: 1242131075}
+  playerAudioSource: {fileID: 1242131075}
   footstepClips:
   - {fileID: 8300000, guid: 18f1ff003e8fbdb44aba8266f6e1d168, type: 3}
   - {fileID: 8300000, guid: 59cd085e234f32e4daddd2e589174a96, type: 3}
@@ -7875,6 +7804,12 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 4901040e735fd2547870b06a27124c49, type: 3}
   - {fileID: 8300000, guid: 4dcd8f2dc477f5e4aa277ee503048ee8, type: 3}
   jumpClip: {fileID: 8300000, guid: 2c5292ba5cf254919a6b9e2b18e04f49, type: 3}
+  speedUpClip: {fileID: 8300000, guid: 4e1ff8faed12a475eba9be0e46072269, type: 3}
+  shortClip: {fileID: 8300000, guid: 81652031b64c342cc8dbc59c138d77c5, type: 3}
+  getItemClip: {fileID: 8300000, guid: 0b2dc3f8bd139b04d9328ed800a6a70c, type: 3}
+  axClip: {fileID: 8300000, guid: 6750af2302e06a04283ea472a5321419, type: 3}
+  swordClip: {fileID: 8300000, guid: d493dd2a37bcd2142b7fcac02471c02c, type: 3}
+  clockClip: {fileID: 8300000, guid: f829e8a42c4ff334cbe95830c24132e8, type: 3}
   maxDistance: 5
   waterMaxVolume: 1
   campfireMaxVolume: 1
@@ -20006,11 +19941,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &3771170556654949390 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 151798816811891805, guid: 38f3ce16cda81b64f9b02e9ad1e64182, type: 3}
-  m_PrefabInstance: {fileID: 3913258211614992467}
-  m_PrefabAsset: {fileID: 0}
 --- !u!64 &3791735419061779712
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -20100,10 +20030,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects:
-    - targetCorrespondingSourceObject: {fileID: 151798816811891805, guid: 38f3ce16cda81b64f9b02e9ad1e64182, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1432427687}
+    m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 38f3ce16cda81b64f9b02e9ad1e64182, type: 3}
 --- !u!33 &4012453841382614395

@@ -156,34 +156,14 @@ public class PlayerController : MonoBehaviour
 
         return false;
     }
-
-    // 키보드 1 입력을 받아오는 메서드
-    public void OnSetting(InputAction.CallbackContext context)
-    {
-        if(context.phase == InputActionPhase.Started && !isSettingsOpen) // 키를 눌렀을 때
-        {
-            // 설정창 띄우기
-            // 마우스 커서가 보이고 카메라 회전 막기
-            Cursor.lockState = CursorLockMode.None;
-            Cursor.visible = true;
-            isSettingsOpen = true;
-        }
-        else if (context.phase == InputActionPhase.Started && isSettingsOpen ) // 키를 한 번 더 눌렀을 때
-        {
-            // 설정창 감추기
-            // 마우스 커서 감추고 카메라 회전 시작
-            Cursor.lockState = CursorLockMode.Locked;
-            Cursor.visible = false;
-            isSettingsOpen = false;
-        }
-    }
-    // Tab 입력을 받아오는 메서드
     public void OnInventory(InputAction.CallbackContext callbackContext)
     {
         if (callbackContext.phase == InputActionPhase.Started)
         {
             inventory?.Invoke();  // 인벤토리 호출
             ToggleCursor();  // 커서 토글
+            // 효과음 재생
+            SoundManager.Instance.PlayShortSound();
         }
     }
 
@@ -194,4 +174,28 @@ public class PlayerController : MonoBehaviour
         Cursor.visible = toggle ? true : false;
         canLook = !toggle;  // 시점 전환 가능 여부(토글 값과 반대)
     }
+
+    // 키보드 1 입력을 받아오는 메서드(환경설정창)
+    //public void OnSetting(InputAction.CallbackContext context)
+    //{
+    //    if(context.phase == InputActionPhase.Started && !isSettingsOpen) // 키를 눌렀을 때
+    //    {
+    //        // 설정창 띄우기
+    //        // 마우스 커서가 보이고 카메라 회전 막기
+    //        Cursor.lockState = CursorLockMode.None;
+    //        Cursor.visible = true;
+    //        isSettingsOpen = true;
+    //        // 효과음 재생
+    //        SoundManager.Instance.PlayShortSound();
+    //    }
+    //    else if (context.phase == InputActionPhase.Started && isSettingsOpen ) // 키를 한 번 더 눌렀을 때
+    //    {
+    //        // 설정창 감추기
+    //        // 마우스 커서 감추고 카메라 회전 시작
+    //        Cursor.lockState = CursorLockMode.Locked;
+    //        Cursor.visible = false;
+    //        isSettingsOpen = false;
+    //    }
+    //}
+    // Tab 입력을 받아오는 메서드
 }

@@ -59,7 +59,6 @@ public class PlayerCondition : MonoBehaviour, IDamagable
         {
             stamina.Subtract(onJumpStaminaDecay * Time.deltaTime);
         }
-
     }
 
     // 채취시 스테미나 감소하는 메서드
@@ -113,6 +112,7 @@ public class PlayerCondition : MonoBehaviour, IDamagable
         {
             health.Subtract(damage);
             onTakeDamage?.Invoke(); // 이벤트에 등록된 메서드 호출
+            CheckHealthAndPlaySound();
         }
     }
 
@@ -176,5 +176,14 @@ public class PlayerCondition : MonoBehaviour, IDamagable
             yield return null;
         }
         isInvincible = false;
+    }
+
+    // 체력이 1에서 20 사이면 효과음을 재생하는 메서드
+    private void CheckHealthAndPlaySound()
+    {
+        if (health.curValue >= 1 && health.curValue <= 20)
+        {
+            SoundManager.Instance.PlayClockSound();
+        }
     }
 }

@@ -9,14 +9,16 @@ public class SoundManager : MonoBehaviour
     public AudioSource sunAudioSource; // 태양 오디오
     public AudioSource moonAudioSource; // 달 오디오
     public AudioSource hurtAudioSource; // 데미지 오디오
-    public AudioSource jumpAudioSource; // 점프 오디오
     public AudioSource jumpPadAudioSource; // 점프대 오디오
-    public AudioSource moveAudioSource; // 이동 오디오
-    public AudioSource speedUpAudioSource; // 스피드업 스킬 오디오
+    public AudioSource playerAudioSource; // 플레이어 오디오
 
     public AudioClip[] footstepClips; // 발걸음 소리 배열
     public AudioClip jumpClip; // 점프 소리
     public AudioClip speedUpClip; // 스피드업 소리
+    public AudioClip shortClip; // 짧은 소리(버튼)
+    public AudioClip getItemClip; // 아이템 줍기
+    public AudioClip axClip; // 채집
+    public AudioClip clockClip; // HP 약간 남음
 
     Transform playerTransform { get { return CharacterManager.Instance.Player.controller._transform; } }
 
@@ -70,19 +72,43 @@ public class SoundManager : MonoBehaviour
         if (footstepClips.Length > 0)
         {
             AudioClip clip = footstepClips[Random.Range(0, footstepClips.Length)];
-            moveAudioSource.PlayOneShot(clip);
+            playerAudioSource.PlayOneShot(clip);
         }
     }
 
     // 점프 소리 재생 메서드
     public void PlayJumpSound()
     {
-        jumpAudioSource.PlayOneShot(jumpClip);
+        playerAudioSource.PlayOneShot(jumpClip);
     }
 
     // 스피드 업 소리 재생 메서드
     public void PlaySpeedUpSound()
     {
-        jumpAudioSource.PlayOneShot(speedUpClip);
+        playerAudioSource.PlayOneShot(speedUpClip);
+    }
+
+    // 버튼 클릭
+    public void PlayShortSound()
+    {
+        playerAudioSource.PlayOneShot(shortClip);
+    }
+
+    // 아이템 줍기
+    public void PlayGetSound()
+    {
+        playerAudioSource.PlayOneShot(getItemClip);
+    }
+
+    // 채집
+    public void PlayAXSound()
+    {
+        playerAudioSource.PlayOneShot(axClip);
+    }
+
+    // HP 1 이상 20 미만 남았을때
+    public void PlayClockSound()
+    {
+        playerAudioSource.PlayOneShot(clockClip);
     }
 }

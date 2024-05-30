@@ -23,5 +23,7 @@ public class ItemObject : MonoBehaviour, IInteractable
         CharacterManager.Instance.Player.itemData = data;
         CharacterManager.Instance.Player.addItem?.Invoke();
         Destroy(gameObject); // E(줍기) 버튼을 눌렀을 때, 게임 화면에서 아이템을 사라짐
+        // 효과음 재생
+        SoundManager.Instance.PlayGetSound();
     }
 }
