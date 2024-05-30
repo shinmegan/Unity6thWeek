@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c9766202d022b741ac47acb1d95fb44, type: 3}
   m_Name: Mushroom2
   m_EditorClassIdentifier: 
-  objectName: "\uBD89\uC740 \uBC84\uC12F"
-  objectDescription: "\uCC44\uCDE8 \uC2DC, \uCCB4\uB825\uC774 \uAC10\uC18C\uD569\uB2C8\uB2E4.(\uB808\uBCA81)"
+  objectName: "\uBD89\uC740 \uBC84\uC12F(\uC704\uD5D8)"
+  objectDescription: "\uAC00\uAE4C\uC774 \uB2E4\uAC00\uAC00\uBA74, \uCCB4\uB825\uC774
+    \uAC10\uC18C\uD569\uB2C8\uB2E4."

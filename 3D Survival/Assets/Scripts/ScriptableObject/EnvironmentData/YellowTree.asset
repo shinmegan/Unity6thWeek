@@ -10,8 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2c9766202d022b741ac47acb1d95fb44, type: 3}
-  m_Name: MushroomLarge
+  m_Name: YellowTree
   m_EditorClassIdentifier: 
-  objectName: "\uB178\uB780 \uB300\uC655 \uBC84\uC12F(\uC704\uD5D8)"
-  objectDescription: "\uAC00\uAE4C\uC774 \uB2E4\uAC00\uAC00\uBA74, \uCCB4\uB825\uC774
-    \uD06C\uAC8C \uAC10\uC18C\uD569\uB2C8\uB2E4."
+  objectName: "\uB178\uB780\uB098\uBB34"
+  objectDescription: "\uBC14\uB098\uB098\uB97C \uC5BB\uC744 \uC218 \uC788\uC2B5\uB2C8\uB2E4."
