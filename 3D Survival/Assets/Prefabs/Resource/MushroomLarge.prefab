@@ -123,8 +123,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33be36fb1a8af6243b4132665cc07b50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 20
+  damage: 15
   damageRate: 1
+  damageDistance: 3
 --- !u!114 &3703770160884371283
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -152,7 +153,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemToGive: {fileID: 11400000, guid: a87b50a357068e846bc19fccd8a25628, type: 2}
   quantityPerHit: 1
-  capacity: 3
+  capacity: 2
 --- !u!135 &4145321432697174840
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -172,5 +173,5 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.45
-  m_Center: {x: 0.03256321, y: 0.3371647, z: 0.007387534}
+  m_Radius: 0.31
+  m_Center: {x: 0.03256321, y: 0.35, z: 0.007387534}

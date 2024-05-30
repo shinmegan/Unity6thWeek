@@ -35,6 +35,7 @@ public class PlayerCondition : MonoBehaviour, IDamagable
 
     void Update()
     {
+        CurrentHealth();
         hunger.Subtract(hunger.passiveValue * Time.deltaTime); // 배고픔 상태 업데이트(감소)
         stamina.Add(stamina.passiveValue * Time.deltaTime); // 스테미나 상태 업데이트(증가)
         EnoughStamina(onJumpStaminaDecay * 0.2f); // 점프 스테미나 충분한지 확인
@@ -112,7 +113,6 @@ public class PlayerCondition : MonoBehaviour, IDamagable
         {
             health.Subtract(damage);
             onTakeDamage?.Invoke(); // 이벤트에 등록된 메서드 호출
-            CheckHealthAndPlaySound();
         }
     }
 
@@ -177,13 +177,9 @@ public class PlayerCondition : MonoBehaviour, IDamagable
         }
         isInvincible = false;
     }
-
-    // 체력이 1에서 20 사이면 효과음을 재생하는 메서드
-    private void CheckHealthAndPlaySound()
+    // 현재 체력 반환 메서드
+    public float CurrentHealth()
     {
-        if (health.curValue >= 1 && health.curValue <= 20)
-        {
-            SoundManager.Instance.PlayClockSound();
-        }
+        return health.curValue;
     }
 }

@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class DamageIndicator : MonoBehaviour
 {
-    AudioSource hurtAudioSource { get {return SoundManager.Instance.hurtAudioSource; } }
     public Image image;
     public float flashSpeed; // 깜빡이는 속도
 
@@ -14,6 +13,11 @@ public class DamageIndicator : MonoBehaviour
     void Start()
     {   // 이벤트에 Flash 메서드 등록
         CharacterManager.Instance.Player.condition.onTakeDamage += Flash;
+    }
+
+    private void Update()
+    {   // 체력 15미만 경고음
+        CheckHealthAndPlaySound();
     }
 
     public void Flash()
@@ -26,9 +30,8 @@ public class DamageIndicator : MonoBehaviour
         image.enabled = true; // 이미지 켜기
         image.color = new Color(1f, 89f / 255f, 89f / 255f);
         coroutine = StartCoroutine(FadeAway());
-
-        // 효과음 재생
-        hurtAudioSource.Play();
+        // 데미지 입는 효과음 재생
+        SoundManager.Instance.DamageAudioSource.Play();
     }
 
     private IEnumerator FadeAway()
@@ -44,6 +47,20 @@ public class DamageIndicator : MonoBehaviour
         }
 
         image.enabled = false; // 이미지 끄기
+    }
+
+    // 체력이 1에서 20 사이면 효과음을 재생하는 메서드
+    private void CheckHealthAndPlaySound()
+    {
+        AudioSource conditionAudioSource = SoundManager.Instance.conditionAudioSource;
+        float currentHealth = CharacterManager.Instance.Player.condition.CurrentHealth();
+        
+        if (currentHealth >= 1 && currentHealth <= 15 && !conditionAudioSource.isPlaying)
+        {
+            conditionAudioSource.Play();
+        }
+        else if (currentHealth < 1 || currentHealth > 15)
+            conditionAudioSource.Stop();
     }
 
 }

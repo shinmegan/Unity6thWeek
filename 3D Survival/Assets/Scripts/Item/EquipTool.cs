@@ -63,6 +63,11 @@ public class EquipTool : Equip
                 // 위험한 자원에 대한 추가 처리
                 dangerousResource.Gather(hit.point, hit.normal); // 위험한 자원 채집
             }
+
+            if((doesGatherResources && hit.collider.gameObject.layer != TreeLayer) || (isDangerousResource && hit.collider.gameObject.layer != MushroomLayer) )
+            {
+                Debug.Log("적합한 도구를 장착해주세요. 나무->도끼 , 버섯->검");
+            }
         }
     }
 }

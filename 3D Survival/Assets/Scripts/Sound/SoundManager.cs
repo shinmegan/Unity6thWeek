@@ -8,9 +8,10 @@ public class SoundManager : MonoBehaviour
     public AudioSource campfireAudioSource; // 캠프 파이어 오디오
     public AudioSource sunAudioSource; // 태양 오디오
     public AudioSource moonAudioSource; // 달 오디오
-    public AudioSource hurtAudioSource; // 데미지 오디오
+    public AudioSource DamageAudioSource; // 데미지 오디오
     public AudioSource jumpPadAudioSource; // 점프대 오디오
     public AudioSource playerAudioSource; // 플레이어 오디오
+    public AudioSource conditionAudioSource; // 체력 20미만 경고 오디오
 
     public AudioClip[] footstepClips; // 발걸음 소리 배열
     public AudioClip jumpClip; // 점프 소리
@@ -18,7 +19,6 @@ public class SoundManager : MonoBehaviour
     public AudioClip shortClip; // 짧은 소리(버튼)
     public AudioClip getItemClip; // 아이템 줍기
     public AudioClip axClip; // 채집
-    public AudioClip clockClip; // HP 약간 남음
 
     Transform playerTransform { get { return CharacterManager.Instance.Player.controller._transform; } }
 
@@ -104,11 +104,5 @@ public class SoundManager : MonoBehaviour
     public void PlayAXSound()
     {
         playerAudioSource.PlayOneShot(axClip);
-    }
-
-    // HP 1 이상 20 미만 남았을때
-    public void PlayClockSound()
-    {
-        playerAudioSource.PlayOneShot(clockClip);
     }
 }

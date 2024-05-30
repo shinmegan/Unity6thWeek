@@ -102,6 +102,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 3
   damageRate: 1
+  damageDistance: 3
 --- !u!114 &8944936269318822718
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -129,7 +130,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemToGive: {fileID: 11400000, guid: 6e1418aa3ebb5f9468221d15d11eaecf, type: 2}
   quantityPerHit: 1
-  capacity: 3
+  capacity: 2
 --- !u!135 &529324056140451738
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -149,5 +150,5 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.34
-  m_Center: {x: 0.003314145, y: 0.2000958, z: -0.012415469}
+  m_Radius: 0.11
+  m_Center: {x: 0.003314145, y: 0.27, z: -0.012415469}

@@ -207,8 +207,6 @@ public class UIInventory : MonoBehaviour
                 }
             }
             RemoveSelectedItem();  // 선택된 아이템 제거
-            // 효과음 재생
-            SoundManager.Instance.PlayShortSound();
         }
     }
 
@@ -217,8 +215,6 @@ public class UIInventory : MonoBehaviour
     {
         ThrowItem(selectedItem.item);  // 아이템 버리기
         RemoveSelectedItem();  // 선택된 아이템 제거
-        // 효과음 재생
-        SoundManager.Instance.PlayShortSound();
     }
 
     // 버린 아이템 제거 메서드

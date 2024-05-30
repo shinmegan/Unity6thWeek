@@ -162,8 +162,6 @@ public class PlayerController : MonoBehaviour
         {
             inventory?.Invoke();  // 인벤토리 호출
             ToggleCursor();  // 커서 토글
-            // 효과음 재생
-            SoundManager.Instance.PlayShortSound();
         }
     }
 
