@@ -226,7 +226,7 @@ public class UIInventory : MonoBehaviour
         {
             if (slots[selectedItemIndex].equipped)
             {
-                //UnEquip(selectedItemIndex);  // 장착 해제
+                UnEquip(selectedItemIndex);  // 장착 해제
             }
 
             selectedItem.item = null;  // 아이템 초기화
@@ -236,8 +236,44 @@ public class UIInventory : MonoBehaviour
         UpdateUI();  // UI 업데이트
     }
 
+    // 장착 버튼 메서드
+    public void OnEquipButton()
+    {
+        if (slots[curEquipIndex].equipped)
+        {
+            UnEquip(curEquipIndex); // 장비 해제
+        }
+
+        slots[selectedItemIndex].equipped = true; // 장비 장착 상태 설정
+        curEquipIndex = selectedItemIndex; // 현재 장착 인덱스 설정
+        CharacterManager.Instance.Player.equip.EquipNew(selectedItem.item); // 새로운 장비 장착
+        UpdateUI(); // UI 업데이트
+
+        SelectItem(selectedItemIndex); // 아이템 선택
+    }
+
+    // 장비 해제 메서드
+    void UnEquip(int index)
+    {
+        slots[index].equipped = false; // 장비 장착 해제 상태 설정
+        CharacterManager.Instance.Player.equip.UnEquip(); // 장비 해제
+        UpdateUI(); // UI 업데이트
+        // 선택한 아이템 인덱스가 지금 함수에 들어온 인덱스와 같다면,
+        if (selectedItemIndex == index)
+        {
+            SelectItem(selectedItemIndex); // 아이템 선택
+        }
+    }
+
+    // 장비 해제 버튼 메서드
+    public void OnUnEquipButton()
+    {
+        UnEquip(selectedItemIndex); // 선택한 아이템 해제
+    }
+
+    // 아이템 소유 여부 확인 메서드
     public bool HasItem(ItemData item, int quantity)
     {
-        return false;  // 아이템 보유 여부
+        return false; 
     }
 }

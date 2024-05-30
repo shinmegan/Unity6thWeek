@@ -51,6 +51,15 @@
                     "initialStateCheck": false
                 },
                 {
+                    "name": "Attack",
+                    "type": "Button",
+                    "id": "6c3d3a9a-7052-462b-ac16-8e0ac6dc2af5",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
                     "name": "Setting",
                     "type": "Button",
                     "id": "a03eedd0-3020-465a-bc29-7b09f44a2b1a",
@@ -188,6 +197,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "Boost",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "46b1c9a5-471d-4b56-9db3-9099ae81ca3c",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Attack",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

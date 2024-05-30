@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Item_Fish
   m_EditorClassIdentifier: 
   displayName: "\uBB3C\uACE0\uAE30"
-  description: "\uC12D\uCDE8 \uC2DC, 5\uCD08\uAC04 \uBB34\uC801\uC0C1\uD0DC\uAC00
+  description: "\uC12D\uCDE8 \uC2DC, 10\uCD08\uAC04 \uBB34\uC801\uC0C1\uD0DC\uAC00
     \uB429\uB2C8\uB2E4. \uBC84\uB9AC\uBA74, \uB2E4\uC2DC \uAC1C\uC6B8\uAC00\uB85C
     \uB3CC\uC544\uAC11\uB2C8\uB2E4."
   type: 1
@@ -23,5 +23,5 @@ MonoBehaviour:
   maxStackAmount: 0
   consumables:
   - type: 3
-    value: 999
-    duration: 5
+    value: 99
+    duration: 10
