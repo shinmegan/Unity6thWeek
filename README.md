@@ -41,7 +41,7 @@
 
 <br>
 
-[:crossed_swords: 목차로 돌아가기](#목차)
+[:crossed_swords: 목차로 돌아가기](#crossed_swords-목차)
 
 <br><br>
 
@@ -51,7 +51,7 @@
 
 <br>
 
-[:crossed_swords: 목차로 돌아가기](#목차)
+[:crossed_swords: 목차로 돌아가기](#crossed_swords-목차)
 
 <br><br>
 
@@ -169,7 +169,7 @@
 
 <br>
 
-[:crossed_swords: 목차로 돌아가기](#목차)
+[:crossed_swords: 목차로 돌아가기](#crossed_swords-목차)
 
 <br><br>
 
@@ -183,6 +183,6 @@
 
 <br>
 
-[:crossed_swords: 목차로 돌아가기](#목차)
+[:crossed_swords: 목차로 돌아가기](#crossed_swords-목차)
 
 <br><br>
