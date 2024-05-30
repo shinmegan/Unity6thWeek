@@ -9,7 +9,6 @@ public class PlayerController : MonoBehaviour
     bool isDead { get { return CharacterManager.Instance.Player.condition.isDead; } } // 플레이어 사망 유무 확인
 
     bool isSpeedUpSkillOn { get { return CharacterManager.Instance.Player.skill.isSpeedUpSkillOn; } }
-    public Transform _transform;
 
     [Header("Movement")]
     public float moveSpeed;
@@ -53,7 +52,6 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
-        _transform = GetComponent<Transform>(); 
         if (!isSettingsOpen) // 설정창이 열려있지 않을 때만 이동 처리
         {
             Move();

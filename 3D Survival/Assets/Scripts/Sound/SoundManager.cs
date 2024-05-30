@@ -20,7 +20,7 @@ public class SoundManager : MonoBehaviour
     public AudioClip getItemClip; // 아이템 줍기
     public AudioClip axClip; // 채집
 
-    Transform playerTransform { get { return CharacterManager.Instance.Player.controller._transform; } }
+    Vector3 playerTransform { get { return CharacterManager.Instance.Player.playerPosition; } }
 
     public float maxDistance = 5f; // 최대 거리
     public float waterMaxVolume = 1f; // 물소리 최대 볼륨
@@ -58,11 +58,11 @@ public class SoundManager : MonoBehaviour
     private void Update()
     {
         // 물소리 볼륨 조절(waterDistance 값이 작아지면, 오디오 소리 커짐)
-        float waterDistance = Vector3.Distance(playerTransform.position, waterAudioSource.transform.position);
+        float waterDistance = Vector3.Distance(playerTransform, waterAudioSource.transform.position);
         waterAudioSource.volume = Mathf.Clamp(1 - (waterDistance / maxDistance), 0, waterMaxVolume);
 
         // 캠프 파이어 소리 볼륨 조절
-        float campfireDistance = Vector3.Distance(playerTransform.position, campfireAudioSource.transform.position);
+        float campfireDistance = Vector3.Distance(playerTransform, campfireAudioSource.transform.position);
         campfireAudioSource.volume = Mathf.Clamp(1 - (campfireDistance / maxDistance), 0, campfireMaxVolume);
     }
 
