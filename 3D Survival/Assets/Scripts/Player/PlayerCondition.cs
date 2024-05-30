@@ -23,6 +23,7 @@ public class PlayerCondition : MonoBehaviour, IDamagable
     bool isEquipSword { get { return CharacterManager.Instance.Player.equip.isEquipSword; } }
 
     public float onJumpStaminaDecay; // 점프 시 스테미나 감소되는 값
+    public float ResouceGatherStaminaDecay; // 채취 시 스테미나 감소되는 값
     public float noHungerHealthDecay; // 배고픔 이후 체력 감소되는 값
     public bool isEnoughStamina = false; // 스태미나가 충분한지 확인
     public bool isDead = false; // 플레이어 사망 확인
@@ -59,6 +60,12 @@ public class PlayerCondition : MonoBehaviour, IDamagable
         }
         // 스킬 사용시 마나 소모
 
+    }
+
+    // 채취시 스테미나 감소하는 메서드
+    public void UseStamina(float staminaDecay)
+    {
+        stamina.Subtract(staminaDecay);
     }
 
     // 아이템 사용시 체력 회복하는 메서드

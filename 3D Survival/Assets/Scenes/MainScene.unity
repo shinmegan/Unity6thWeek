@@ -5512,6 +5512,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   uICondition: {fileID: 0}
   onJumpStaminaDecay: 50
+  ResouceGatherStaminaDecay: 20
   noHungerHealthDecay: 2
   isEnoughStamina: 0
   isDead: 0

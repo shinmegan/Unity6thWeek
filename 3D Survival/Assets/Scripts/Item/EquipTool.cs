@@ -20,7 +20,6 @@ public class EquipTool : Equip
     private int TreeLayer; // "Tree" 레이어
     private int MushroomLayer; // "Mushroom" 레이어
 
-
     private void Awake()
     {
         camera = Camera.main; // 메인 카메라 참조
@@ -55,7 +54,8 @@ public class EquipTool : Equip
         {
             if (doesGatherResources && hit.collider.gameObject.layer == TreeLayer && hit.collider.TryGetComponent(out Resource resource))
             {
-                resource.Gather(hit.point, hit.normal); // 자원 채집
+                // 자원 채집
+                resource.Gather(hit.point, hit.normal);
             }
 
             if (isDangerousResource && hit.collider.gameObject.layer == MushroomLayer && hit.collider.TryGetComponent(out Resource dangerousResource))
