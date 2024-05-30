@@ -7,7 +7,7 @@
 
 <div align="center">
 
-# ⚔️목차
+# :crossed_swords: 목차
 
 | [🏝️ 프로젝트 소개(개발환경) ](#desert_island-프로젝트-소개) |
 | :---: |
