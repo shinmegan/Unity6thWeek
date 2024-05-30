@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: Item_Sword
   m_EditorClassIdentifier: 
   displayName: "\uB0A0\uCE74\uB85C\uC6B4 \uCE7C"
-  description: "\uC704\uD5D8\uD55C \uC790\uC6D0\uC744 \uCC44\uCDE8\uD560 \uB54C \uC0AC\uC6A9\uD569\uB2C8\uB2E4."
+  description: "\uC704\uD5D8\uD55C \uC790\uC6D0\uC744 \uCC44\uCDE8\uD560 \uB54C \uC0AC\uC6A9\uD569\uB2C8\uB2E4.
+    \uC7A5\uCC29 \uC2DC, \uCCB4\uB825\uC774 \uC870\uAE08\uC529 \uC0C1\uC2B9\uD569\uB2C8\uB2E4."
   type: 0
   icon: {fileID: 21300000, guid: 4f2f320a217307a48a107491b1d17ebb, type: 3}
   dropPrefab: {fileID: 8283768192648391640, guid: 9a02bb92b816e7c4e881c28f4e5a7d30, type: 3}

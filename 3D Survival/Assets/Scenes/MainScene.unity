@@ -5707,6 +5707,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   curEquip: {fileID: 0}
+  isEquipSword: 0
 --- !u!1 &1267286622
 GameObject:
   m_ObjectHideFlags: 0
@@ -7238,7 +7239,7 @@ MonoBehaviour:
   curValue: 0
   startValue: 100
   maxValue: 100
-  passiveValue: 1
+  passiveValue: 0.4
   uiBar: {fileID: 49739264}
 --- !u!1 &1767238191
 GameObject:

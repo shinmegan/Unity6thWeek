@@ -10,6 +10,7 @@ public class Equipment : MonoBehaviour
 
     private PlayerController controller; // 플레이어 컨트롤러
     private PlayerCondition condition; // 플레이어 상태
+    public bool isEquipSword = false;
 
     // 초기화 함수
     void Start()
@@ -17,6 +18,7 @@ public class Equipment : MonoBehaviour
         equipPosition = gameObject.transform;
         controller = CharacterManager.Instance.Player.controller; // 플레이어 컨트롤러 참조
         condition = CharacterManager.Instance.Player.condition; // 플레이어 상태 참조
+        isEquipSword = false;
     }
 
     // 새로운 장비 장착 함수
@@ -24,6 +26,10 @@ public class Equipment : MonoBehaviour
     {
         UnEquip(); // 기존 장비 해제
         curEquip = Instantiate(data.equipPrefab, equipPosition).GetComponent<Equip>(); // 새로운 장비 인스턴스 생성 및 장착
+        if(data.equipPrefab.tag == "Sword")
+        {
+            isEquipSword = true;
+        }
     }
 
     // 장비 해제 함수
@@ -33,6 +39,7 @@ public class Equipment : MonoBehaviour
         {
             Destroy(curEquip.gameObject); // 현재 장착된 장비 파괴
             curEquip = null; // 현재 장착된 장비 null로 설정
+            isEquipSword = false;
         }
     }
 

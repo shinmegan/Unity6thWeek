@@ -12,6 +12,7 @@ public interface IDamagable
 public class PlayerCondition : MonoBehaviour, IDamagable
 {
     public UICondition uICondition;
+    private UIInventory inventory;  // 인벤토리 참조
 
     Condition health { get { return uICondition.health;  } }
     Condition hunger { get { return uICondition.hunger; } }
@@ -19,6 +20,7 @@ public class PlayerCondition : MonoBehaviour, IDamagable
     Condition mana { get { return uICondition.mana; } }
 
     bool isJumpOn { get { return CharacterManager.Instance.Player.controller.isJumpOn; } } // 점프 키 눌렀을 때 true 반환
+    bool isEquipSword { get { return CharacterManager.Instance.Player.equip.isEquipSword; } }
 
     public float onJumpStaminaDecay; // 점프 시 스테미나 감소되는 값
     public float noHungerHealthDecay; // 배고픔 이후 체력 감소되는 값
@@ -34,6 +36,10 @@ public class PlayerCondition : MonoBehaviour, IDamagable
         hunger.Subtract(hunger.passiveValue * Time.deltaTime); // 배고픔 상태 업데이트(감소)
         stamina.Add(stamina.passiveValue * Time.deltaTime); // 스테미나 상태 업데이트(증가)
         EnoughStamina(onJumpStaminaDecay * 0.2f); // 점프 스테미나 충분한지 확인
+
+        // 검 장착시 체력 상태 업데이트(증가)
+        if(isEquipSword)
+            health.Add(health.passiveValue * Time.deltaTime); // 체력 상태 업데이트(증가)
 
         // 배고픔이 0이 되면, 체력이 감소하기 시작
         if (hunger.curValue == 0f)
@@ -165,5 +171,4 @@ public class PlayerCondition : MonoBehaviour, IDamagable
         }
         isInvincible = false;
     }
-
 }
