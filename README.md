@@ -34,7 +34,7 @@
 | 개발 언어 | C# |
 | 프레임워크 | .Net 4.8.04084 |
 | 개발 환경 | Unity 2022.3.17f1 <br/> Visual Studio Community 2022 |
-| 타겟 플랫폼 | Android |
+| 타겟 플랫폼 | Windows |
 | 개발 기간 | 2024.05.24 ~ 2024.05.30 |
 
 </div>
