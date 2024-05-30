@@ -7,6 +7,8 @@ public class PlayerController : MonoBehaviour
 {
     bool isEnoughStamina { get { return CharacterManager.Instance.Player.condition.isEnoughStamina; } } // 스태미나가 충분하면 true 반환
     bool isDead { get { return CharacterManager.Instance.Player.condition.isDead; } } // 플레이어 사망 유무 확인
+
+    bool isSpeedUpSkillOn { get { return CharacterManager.Instance.Player.skill.isSpeedUpSkillOn; } }
     public Transform _transform;
 
     [Header("Movement")]
@@ -70,7 +72,16 @@ public class PlayerController : MonoBehaviour
     void Move()
     {   // 방향설정: W(0,1)와 S(0,-1) + A(-1,0)와 D(1,0)
         Vector3 dir = transform.forward * curMovementInput.y + transform.right * curMovementInput.x;
-        dir *= moveSpeed;
+        // 스피드업 스킬 사용시 속도 증가
+        if (isSpeedUpSkillOn)
+        {
+            dir *= moveSpeed * 3;
+        }
+        else
+        {
+            dir *= moveSpeed;
+        }
+        
         dir.y = _rigidbody.velocity.y; // 현재 y 속도 유지(점프하거나 중력에 의해 떨어지는 경우를 처리)
         _rigidbody.velocity = dir; // 새로운 속도 설정
     }

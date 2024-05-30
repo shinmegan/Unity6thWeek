@@ -6,6 +6,7 @@ public class Player : MonoBehaviour
     public PlayerController controller;
     public PlayerCondition condition;
     public Equipment equip;
+    public SpeedUpSkill skill;
 
     public ItemData itemData;
     public Action addItem; // addItem 델리게이트
@@ -18,5 +19,6 @@ public class Player : MonoBehaviour
         controller = GetComponent<PlayerController>();
         condition = GetComponent<PlayerCondition>();
         equip = GetComponent<Equipment>();
+        skill = GetComponent<SpeedUpSkill>();
     }
 }

@@ -26,6 +26,7 @@ public class PlayerCondition : MonoBehaviour, IDamagable
     public float ResouceGatherStaminaDecay; // 채취 시 스테미나 감소되는 값
     public float noHungerHealthDecay; // 배고픔 이후 체력 감소되는 값
     public bool isEnoughStamina = false; // 스태미나가 충분한지 확인
+    public bool isEnoughMana = false; // 마나가 충분한지 확인
     public bool isDead = false; // 플레이어 사망 확인
 
     public event Action onTakeDamage;
@@ -58,7 +59,6 @@ public class PlayerCondition : MonoBehaviour, IDamagable
         {
             stamina.Subtract(onJumpStaminaDecay * Time.deltaTime);
         }
-        // 스킬 사용시 마나 소모
 
     }
 
@@ -96,14 +96,7 @@ public class PlayerCondition : MonoBehaviour, IDamagable
     // 스킬 사용 시 마나를 감소하는 메서드
     public void UseSkill(float manaCost)
     {
-        if (mana.curValue >= manaCost)
-        {
-            mana.Subtract(manaCost);
-        }
-        else
-        {
-            Debug.Log("마나가 부족합니다.");
-        }
+        mana.Subtract(manaCost);
     }
 
     // 체력이 소진되면 사망하는 메서드
@@ -127,6 +120,12 @@ public class PlayerCondition : MonoBehaviour, IDamagable
     public bool EnoughStamina(float decay)
     {
         return isEnoughStamina = stamina.curValue > decay;
+    }
+
+    // 마나 충분한 지 확인 하는 메서드
+    public bool EnoughMana(float decay)
+    {
+        return isEnoughMana = mana.curValue > decay;
     }
 
     // 아이템 사용시 체력 회복하는 코루틴

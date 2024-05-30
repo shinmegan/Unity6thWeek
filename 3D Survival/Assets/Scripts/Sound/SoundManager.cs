@@ -12,9 +12,11 @@ public class SoundManager : MonoBehaviour
     public AudioSource jumpAudioSource; // 점프 오디오
     public AudioSource jumpPadAudioSource; // 점프대 오디오
     public AudioSource moveAudioSource; // 이동 오디오
+    public AudioSource speedUpAudioSource; // 스피드업 스킬 오디오
 
     public AudioClip[] footstepClips; // 발걸음 소리 배열
     public AudioClip jumpClip; // 점프 소리
+    public AudioClip speedUpClip; // 스피드업 소리
 
     Transform playerTransform { get { return CharacterManager.Instance.Player.controller._transform; } }
 
@@ -76,5 +78,11 @@ public class SoundManager : MonoBehaviour
     public void PlayJumpSound()
     {
         jumpAudioSource.PlayOneShot(jumpClip);
+    }
+
+    // 스피드 업 소리 재생 메서드
+    public void PlaySpeedUpSound()
+    {
+        jumpAudioSource.PlayOneShot(speedUpClip);
     }
 }

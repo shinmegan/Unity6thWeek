@@ -5236,6 +5236,7 @@ GameObject:
   - component: {fileID: 1242131075}
   - component: {fileID: 1242131076}
   - component: {fileID: 1242131077}
+  - component: {fileID: 1242131078}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -5432,7 +5433,19 @@ MonoBehaviour:
     m_ActionId: a03eedd0-3020-465a-bc29-7b09f44a2b1a
     m_ActionName: Player/Setting[/Keyboard/1]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1242131078}
+        m_TargetAssemblyTypeName: SpeedUpSkill, Assembly-CSharp
+        m_MethodName: OnSkill
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 19ecdb66-15bc-40c9-a959-cebaf59a37e7
     m_ActionName: Player/Boost[/Keyboard/shift]
   - m_PersistentCalls:
@@ -5496,6 +5509,7 @@ MonoBehaviour:
   controller: {fileID: 0}
   condition: {fileID: 0}
   equip: {fileID: 0}
+  skill: {fileID: 0}
   itemData: {fileID: 0}
   dropPosition: {fileID: 355385112}
 --- !u!114 &1242131071
@@ -5515,6 +5529,7 @@ MonoBehaviour:
   ResouceGatherStaminaDecay: 20
   noHungerHealthDecay: 2
   isEnoughStamina: 0
+  isEnoughMana: 0
   isDead: 0
 --- !u!114 &1242131072
 MonoBehaviour:
@@ -5709,6 +5724,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   curEquip: {fileID: 0}
   isEquipSword: 0
+--- !u!114 &1242131078
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1242131064}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 642c2d18fa9c59a458c29ba27cad9590, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  manaCost: 30
+  duration: 10
+  isSpeedUpSkillOn: 0
+  SpeedUpImage: {fileID: 1594009992}
 --- !u!1 &1267286622
 GameObject:
   m_ObjectHideFlags: 0
@@ -6662,6 +6693,81 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1574399844}
+  m_CullTransparentMesh: 1
+--- !u!1 &1594009992
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1594009993}
+  - component: {fileID: 1594009995}
+  - component: {fileID: 1594009994}
+  m_Layer: 5
+  m_Name: SpeedUpSkill
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1594009993
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1594009992}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2044620185}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 0}
+  m_AnchoredPosition: {x: 579, y: 10.799988}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 1, y: 0}
+--- !u!114 &1594009994
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1594009992}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.7137255}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: f60b91dc7914a624bb173b3d372e4821, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1594009995
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1594009992}
   m_CullTransparentMesh: 1
 --- !u!64 &1603163575
 MeshCollider:
@@ -7995,6 +8101,7 @@ RectTransform:
   m_Children:
   - {fileID: 640470206}
   - {fileID: 1841275382}
+  - {fileID: 1594009993}
   - {fileID: 1529042036}
   - {fileID: 1479261001}
   m_Father: {fileID: 90279301}
