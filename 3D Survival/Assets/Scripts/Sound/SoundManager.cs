@@ -57,13 +57,16 @@ public class SoundManager : MonoBehaviour
 
     private void Update()
     {
-        // 물소리 볼륨 조절(waterDistance 값이 작아지면, 오디오 소리 커짐)
-        float waterDistance = Vector3.Distance(playerTransform, waterAudioSource.transform.position);
-        waterAudioSource.volume = Mathf.Clamp(1 - (waterDistance / maxDistance), 0, waterMaxVolume);
+        if (!CharacterManager.Instance.Player.condition.isDead)
+        {
+            // 물소리 볼륨 조절(waterDistance 값이 작아지면, 오디오 소리 커짐)
+            float waterDistance = Vector3.Distance(playerTransform, waterAudioSource.transform.position);
+            waterAudioSource.volume = Mathf.Clamp(1 - (waterDistance / maxDistance), 0, waterMaxVolume);
 
-        // 캠프 파이어 소리 볼륨 조절
-        float campfireDistance = Vector3.Distance(playerTransform, campfireAudioSource.transform.position);
-        campfireAudioSource.volume = Mathf.Clamp(1 - (campfireDistance / maxDistance), 0, campfireMaxVolume);
+            // 캠프 파이어 소리 볼륨 조절
+            float campfireDistance = Vector3.Distance(playerTransform, campfireAudioSource.transform.position);
+            campfireAudioSource.volume = Mathf.Clamp(1 - (campfireDistance / maxDistance), 0, campfireMaxVolume);
+        }
     }
 
     // 발걸음 소리 재생 메서드

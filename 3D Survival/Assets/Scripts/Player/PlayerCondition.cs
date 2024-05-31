@@ -30,6 +30,7 @@ public class PlayerCondition : MonoBehaviour, IDamagable
     public bool isDead = false; // 플레이어 사망 확인
 
     public event Action onTakeDamage;
+    public GameObject FailedImage;
 
     private bool isInvincible = false;
 
@@ -102,8 +103,8 @@ public class PlayerCondition : MonoBehaviour, IDamagable
     // 체력이 소진되면 사망하는 메서드
     public void Die()
     {
-        Debug.Log("체력이 전부 소진되어 사망하였습니다.");
         Time.timeScale = 0f;
+        FailedImage.SetActive(true);
     }
 
     // 데미지 인터페이스
