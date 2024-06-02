@@ -33,7 +33,7 @@ public class Resource : MonoBehaviour
                 Instantiate(itemToGive.dropPrefab, hitPoint + Vector3.up, Quaternion.LookRotation(hitNormal, Vector3.up)); // 아이템 생성
             }
             else
-                Debug.Log("스테미나가 부족합니다.");
+                SoundManager.Instance.PlayWrongSound();
         }
 
         if (capacity <= 0)

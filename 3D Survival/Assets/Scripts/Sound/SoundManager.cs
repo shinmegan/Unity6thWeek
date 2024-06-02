@@ -134,19 +134,19 @@ public class SoundManager : MonoBehaviour
         playerAudioSource.PlayOneShot(dropClip, 1f);
     }
 
-    // 잘못된 도구 사용 소리
+    // 잘못된 도구 사용 또는 마나 부족 소리
     public void PlayWrongSound()
     {
         playerAudioSource.PlayOneShot(wrongClip, 1f);
     }
 
-    // 잘못된 도구 사용 소리
+    // 장착 소리
     public void PlayEquipSound()
     {
         playerAudioSource.PlayOneShot(equipClip, 1f);
     }
 
-    // 잘못된 도구 사용 소리
+    // 장착 해제 소리
     public void PlayUnEquipSound()
     {
         playerAudioSource.PlayOneShot(unequipClip, 1f);

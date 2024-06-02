@@ -131,6 +131,12 @@ public class PlayerController : MonoBehaviour
         {
             isJumpOn = false;
         }
+        // 스태미나 부족시, 효과음 재생
+        else if (!isEnoughStamina)
+        {
+            SoundManager.Instance.PlayWrongSound();
+            isJumpOn = false;
+        }
     }
 
     // 땅에 붙어있는지 확인하는 메서드
