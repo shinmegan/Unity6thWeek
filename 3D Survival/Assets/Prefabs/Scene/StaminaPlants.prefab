@@ -13,7 +13,8 @@ GameObject:
   - component: {fileID: 5745614294817990077}
   - component: {fileID: 3904518497220795661}
   - component: {fileID: 8570492904033036045}
-  m_Layer: 0
+  - component: {fileID: 7219549376360065499}
+  m_Layer: 10
   m_Name: PlantEx3 (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -104,7 +105,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.48508793, y: 0.1259062, z: 0.49985266}
+  m_Size: {x: 0.48508793, y: 0.3324216, z: 0.49985266}
   m_Center: {x: -0.0004445091, y: 0.05618135, z: 0}
 --- !u!114 &8570492904033036045
 MonoBehaviour:
@@ -119,6 +120,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   data: {fileID: 11400000, guid: e6503cea4a2dabe4d82271a798ceff81, type: 2}
+--- !u!114 &7219549376360065499
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3024092140540461590}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6525a79520bb8354d95d698e59301458, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemToGive: {fileID: 11400000, guid: 9f8dbd58302db0048a4f6688cdf75b2f, type: 2}
+  quantityPerHit: 1
+  capacity: 5
 --- !u!1 &3329016281921319235
 GameObject:
   m_ObjectHideFlags: 0
@@ -132,7 +148,8 @@ GameObject:
   - component: {fileID: 1900874802429949470}
   - component: {fileID: 3265316714280841310}
   - component: {fileID: 4735461139558322687}
-  m_Layer: 0
+  - component: {fileID: 1842643257457084892}
+  m_Layer: 10
   m_Name: PlantEx3 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -223,7 +240,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.48508793, y: 0.1259062, z: 0.49985266}
+  m_Size: {x: 0.48508793, y: 0.3324216, z: 0.49985266}
   m_Center: {x: -0.0004445091, y: 0.05618135, z: 0}
 --- !u!114 &4735461139558322687
 MonoBehaviour:
@@ -238,6 +255,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   data: {fileID: 11400000, guid: e6503cea4a2dabe4d82271a798ceff81, type: 2}
+--- !u!114 &1842643257457084892
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3329016281921319235}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6525a79520bb8354d95d698e59301458, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemToGive: {fileID: 11400000, guid: 9f8dbd58302db0048a4f6688cdf75b2f, type: 2}
+  quantityPerHit: 1
+  capacity: 5
 --- !u!1 &4003802197439414862
 GameObject:
   m_ObjectHideFlags: 0
@@ -251,7 +283,8 @@ GameObject:
   - component: {fileID: 2471727631895088922}
   - component: {fileID: 501624405977119078}
   - component: {fileID: 1752578085144990580}
-  m_Layer: 0
+  - component: {fileID: 7091658707464497698}
+  m_Layer: 10
   m_Name: PlantEx3 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -342,7 +375,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.48508793, y: 0.1259062, z: 0.49985266}
+  m_Size: {x: 0.48508793, y: 0.3324216, z: 0.49985266}
   m_Center: {x: -0.0004445091, y: 0.05618135, z: -0.0000009536743}
 --- !u!114 &1752578085144990580
 MonoBehaviour:
@@ -357,6 +390,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   data: {fileID: 11400000, guid: e6503cea4a2dabe4d82271a798ceff81, type: 2}
+--- !u!114 &7091658707464497698
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4003802197439414862}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6525a79520bb8354d95d698e59301458, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemToGive: {fileID: 11400000, guid: 9f8dbd58302db0048a4f6688cdf75b2f, type: 2}
+  quantityPerHit: 1
+  capacity: 5
 --- !u!1 &6732081989244294000
 GameObject:
   m_ObjectHideFlags: 0
@@ -370,7 +418,8 @@ GameObject:
   - component: {fileID: 6355802561668955718}
   - component: {fileID: 2104264392097637651}
   - component: {fileID: 3383079689672834843}
-  m_Layer: 0
+  - component: {fileID: 8653201830599051314}
+  m_Layer: 10
   m_Name: PlantEx3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -461,8 +510,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.48508793, y: 0.1259062, z: 0.49985266}
-  m_Center: {x: -0.0004445091, y: 0.05618135, z: -0.00000047683716}
+  m_Size: {x: 0.48508796, y: 0.33242163, z: 0.49985266}
+  m_Center: {x: -0.0004445116, y: 0.15943895, z: -0.00000047683716}
 --- !u!114 &3383079689672834843
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -476,6 +525,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   data: {fileID: 11400000, guid: e6503cea4a2dabe4d82271a798ceff81, type: 2}
+--- !u!114 &8653201830599051314
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6732081989244294000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6525a79520bb8354d95d698e59301458, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemToGive: {fileID: 11400000, guid: 9f8dbd58302db0048a4f6688cdf75b2f, type: 2}
+  quantityPerHit: 1
+  capacity: 5
 --- !u!1 &7859868184028125618
 GameObject:
   m_ObjectHideFlags: 0
@@ -485,7 +549,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6070010394690109775}
-  m_Layer: 0
+  - component: {fileID: 6018902845402610642}
+  - component: {fileID: 3960015700595881483}
+  - component: {fileID: 1914653144272195464}
+  - component: {fileID: 7233874899456511117}
+  m_Layer: 10
   m_Name: StaminaPlants
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -511,3 +579,59 @@ Transform:
   - {fileID: 535279931656448489}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6018902845402610642
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7859868184028125618}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd97299acf2438d42abd1eb3eb6294c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnableResource: {fileID: 6732081989244294000}
+  reSpawnTime: 60
+--- !u!114 &3960015700595881483
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7859868184028125618}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd97299acf2438d42abd1eb3eb6294c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnableResource: {fileID: 3329016281921319235}
+  reSpawnTime: 60
+--- !u!114 &1914653144272195464
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7859868184028125618}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd97299acf2438d42abd1eb3eb6294c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnableResource: {fileID: 4003802197439414862}
+  reSpawnTime: 60
+--- !u!114 &7233874899456511117
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7859868184028125618}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd97299acf2438d42abd1eb3eb6294c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnableResource: {fileID: 3024092140540461590}
+  reSpawnTime: 60
