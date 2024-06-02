@@ -15,7 +15,7 @@ public class EquipTool : Equip
     public bool isDangerousResource; // 위험한 자원 여부
 
     private Animator animator; // 애니메이터
-    private new Camera camera; // 카메라
+    private Camera camera; // 카메라
 
     private int TreeLayer; // "Tree" 레이어
     private int MushroomLayer; // "Mushroom" 레이어
