@@ -49,6 +49,7 @@ public class Equipment : MonoBehaviour
         if (context.phase == InputActionPhase.Performed && curEquip != null && controller.canLook)
         {
             curEquip.OnAttackInput(); // 장비의 공격 입력 처리 호출
+            SoundManager.Instance.PlayMissSound();
         }
     }
 }

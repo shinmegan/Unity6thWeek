@@ -19,6 +19,12 @@ public class SoundManager : MonoBehaviour
     public AudioClip shortClip; // 짧은 소리(버튼)
     public AudioClip getItemClip; // 아이템 줍기
     public AudioClip axClip; // 채집
+    public AudioClip invisibilityClip; // 무적 효과 소리
+    public AudioClip missClip;
+    public AudioClip dropClip;
+    public AudioClip wrongClip;
+    public AudioClip unequipClip;
+    public AudioClip equipClip;
 
     Vector3 playerTransform { get { return CharacterManager.Instance.Player.playerPosition; } }
 
@@ -94,6 +100,12 @@ public class SoundManager : MonoBehaviour
         playerAudioSource.PlayOneShot(speedUpClip);
     }
 
+    // 무적 소리 재생 메서드
+    public void PlayInvisibilitySound()
+    {
+        playerAudioSource.PlayOneShot(invisibilityClip);
+    }
+
     // 버튼 클릭
     public void PlayShortSound()
     {
@@ -109,6 +121,34 @@ public class SoundManager : MonoBehaviour
     // 채집
     public void PlayAXSound()
     {
-        playerAudioSource.PlayOneShot(axClip);
+        playerAudioSource.PlayOneShot(axClip, 1f);
+    }
+    // 허공 휘두르기 소리
+    public void PlayMissSound()
+    {
+        playerAudioSource.PlayOneShot(missClip, 1f);
+    }
+    // 버리기 소리
+    public void PlayDropSound()
+    {
+        playerAudioSource.PlayOneShot(dropClip, 1f);
+    }
+
+    // 잘못된 도구 사용 소리
+    public void PlayWrongSound()
+    {
+        playerAudioSource.PlayOneShot(wrongClip, 1f);
+    }
+
+    // 잘못된 도구 사용 소리
+    public void PlayEquipSound()
+    {
+        playerAudioSource.PlayOneShot(equipClip, 1f);
+    }
+
+    // 잘못된 도구 사용 소리
+    public void PlayUnEquipSound()
+    {
+        playerAudioSource.PlayOneShot(unequipClip, 1f);
     }
 }

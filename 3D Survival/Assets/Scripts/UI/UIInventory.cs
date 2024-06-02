@@ -205,6 +205,7 @@ public class UIInventory : MonoBehaviour
                     case ConsumableType.Invincibility:
                         condition.Invincibility(consumable.duration); break;  // 일정 시간 무적 상태
                 }
+                //회복 효과음 재생
             }
             if(selectedItem.item.displayName == "물고기")
             {
@@ -221,6 +222,8 @@ public class UIInventory : MonoBehaviour
     {
         ThrowItem(selectedItem.item);  // 아이템 버리기
         RemoveSelectedItem();  // 선택된 아이템 제거
+        // 효과음 재생
+        SoundManager.Instance.PlayDropSound();
     }
 
     // 버린 아이템 제거 메서드
@@ -256,8 +259,7 @@ public class UIInventory : MonoBehaviour
         UpdateUI(); // UI 업데이트
 
         SelectItem(selectedItemIndex); // 아이템 선택
-        // 효과음 재생
-        SoundManager.Instance.PlayShortSound();
+        SoundManager.Instance.PlayEquipSound();
     }
 
     // 장비 해제 메서드
@@ -271,6 +273,7 @@ public class UIInventory : MonoBehaviour
         {
             SelectItem(selectedItemIndex); // 아이템 선택
         }
+        SoundManager.Instance.PlayUnEquipSound();
     }
 
     // 장비 해제 버튼 메서드
