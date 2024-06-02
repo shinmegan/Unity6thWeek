@@ -56,6 +56,11 @@ public class PlayerController : MonoBehaviour
         {
             Move();
         }
+        if (isDead)
+        {
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+        }
     }
 
     private void LateUpdate()

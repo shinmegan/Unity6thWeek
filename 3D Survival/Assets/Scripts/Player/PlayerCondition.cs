@@ -34,6 +34,14 @@ public class PlayerCondition : MonoBehaviour, IDamagable
 
     private bool isInvincible = false;
 
+    private void Start()
+    {
+        isEnoughStamina = false; 
+        isEnoughMana = false; 
+        isDead = false; 
+        isInvincible = false;
+    }
+
     void Update()
     {
         CurrentHealth();
@@ -61,6 +69,15 @@ public class PlayerCondition : MonoBehaviour, IDamagable
         {
             stamina.Subtract(onJumpStaminaDecay * Time.deltaTime);
         }
+    }
+
+    // 체력이 소진되면 사망하는 메서드
+    public void Die()
+    {
+        Time.timeScale = 0f;
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+        FailedImage.SetActive(true);
     }
 
     // 채취시 스테미나 감소하는 메서드
@@ -104,13 +121,6 @@ public class PlayerCondition : MonoBehaviour, IDamagable
     public void UseSkill(float manaCost)
     {
         mana.Subtract(manaCost);
-    }
-
-    // 체력이 소진되면 사망하는 메서드
-    public void Die()
-    {
-        Time.timeScale = 0f;
-        FailedImage.SetActive(true);
     }
 
     // 데미지 인터페이스
@@ -201,4 +211,5 @@ public class PlayerCondition : MonoBehaviour, IDamagable
     {
         return health.curValue;
     }
+
 }

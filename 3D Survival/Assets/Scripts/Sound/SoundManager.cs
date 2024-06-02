@@ -58,6 +58,7 @@ public class SoundManager : MonoBehaviour
             if (_instance == this)
             {   // 중복 인스턴스 제거
                 Destroy(gameObject);
+                return; // 이걸 추가해서 중복 객체의 초기화를 방지
             }
         }
     }
@@ -70,12 +71,12 @@ public class SoundManager : MonoBehaviour
             foreach (AudioSource waterAudioSource in waterAudioSources)
             {
                 float waterDistance = Vector3.Distance(playerTransform, waterAudioSource.transform.position);
-                waterAudioSource.volume = Mathf.Clamp(1 - (waterDistance / maxDistance), 0, waterMaxVolume);
+                waterAudioSource.volume = Mathf.Clamp(0.9f - (waterDistance / maxDistance), 0, waterMaxVolume);
             }
 
             // 캠프 파이어 소리 볼륨 조절
             float campfireDistance = Vector3.Distance(playerTransform, campfireAudioSource.transform.position);
-            campfireAudioSource.volume = Mathf.Clamp(1 - (campfireDistance / maxDistance), 0, campfireMaxVolume);
+            campfireAudioSource.volume = Mathf.Clamp(0.9f - (campfireDistance / maxDistance), 0, campfireMaxVolume);
         }
     }
 
