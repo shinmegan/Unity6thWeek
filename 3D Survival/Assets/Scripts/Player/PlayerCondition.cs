@@ -87,6 +87,12 @@ public class PlayerCondition : MonoBehaviour, IDamagable
         StartCoroutine(EatOverTime(amount, duration));
     }
 
+    // 스태미나 아이템 사용시 스태미나 회복하는 메서드
+    public void GetStamina(float amount, float duration)
+    {
+        StartCoroutine(GetStaminaOverTime(amount, duration));
+    }
+
     // 무적 아이템 사용시 데미지 무력화 메서드
     public void Invincibility(float duration)
     {
@@ -160,6 +166,18 @@ public class PlayerCondition : MonoBehaviour, IDamagable
         while (timer < duration)
         {
             hunger.Add(amount * (Time.deltaTime / duration));
+            timer += Time.deltaTime;
+            yield return null;
+        }
+    }
+
+    // 스태미나 회복 아이템 사용시 스태미나 회복하는 코루틴
+    private IEnumerator GetStaminaOverTime(float amount, float duration)
+    {
+        float timer = 0f;
+        while (timer < duration)
+        {
+            stamina.Add(amount * (Time.deltaTime / duration));
             timer += Time.deltaTime;
             yield return null;
         }

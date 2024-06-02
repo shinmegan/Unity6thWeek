@@ -204,8 +204,11 @@ public class UIInventory : MonoBehaviour
                         condition.RestoreMana(consumable.value, consumable.duration); break;  // 일정 시간 마나 회복
                     case ConsumableType.Invincibility:
                         condition.Invincibility(consumable.duration); break;  // 일정 시간 무적 상태
+                    case ConsumableType.Stamina:
+                        condition.GetStamina(consumable.value, consumable.duration); break;  // 일정 시간 스태미나 회복
                 }
                 //회복 효과음 재생
+                SoundManager.Instance.PlayHealingSound();
             }
             if(selectedItem.item.displayName == "물고기")
             {

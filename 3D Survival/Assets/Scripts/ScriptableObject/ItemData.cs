@@ -13,7 +13,8 @@ public enum ConsumableType
     Health, // 체력
     Hunger, // 배고픔
     Mana,    // 마나
-    Invincibility // 무적상태
+    Invincibility, // 무적상태
+    Stamina // 스태미나
 }
 
 [Serializable]
