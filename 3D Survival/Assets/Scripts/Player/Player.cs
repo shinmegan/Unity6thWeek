@@ -8,6 +8,7 @@ public class Player : MonoBehaviour
     public PlayerCondition condition;
     public Equipment equip;
     public SpeedUpSkill skill;
+    public InvisibilityOn invisibility;
 
     public ItemData itemData;
     public Action addItem; // addItem 델리게이트
@@ -23,6 +24,7 @@ public class Player : MonoBehaviour
         condition = GetComponent<PlayerCondition>();
         equip = GetComponent<Equipment>();
         skill = GetComponent<SpeedUpSkill>();
+        invisibility = GetComponent<InvisibilityOn>();
     }
 
     private void Update()

@@ -206,6 +206,12 @@ public class UIInventory : MonoBehaviour
                         condition.Invincibility(consumable.duration); break;  // 일정 시간 무적 상태
                 }
             }
+            if(selectedItem.item.displayName == "물고기")
+            {
+                ThrowItem(selectedItem.item);  // 물고기는 사용하기 시 아이템 버리기 로직으로
+                // 무적 UI 10초간 표시
+                CharacterManager.Instance.Player.invisibility.OnInvisibility();
+            }
             RemoveSelectedItem();  // 선택된 아이템 제거
         }
     }

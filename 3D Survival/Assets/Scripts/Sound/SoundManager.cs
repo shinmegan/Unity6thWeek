@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SoundManager : MonoBehaviour
 {
-    public AudioSource waterAudioSource; // 물소리 오디오
+    public AudioSource[] waterAudioSources; // 물소리 오디오
     public AudioSource campfireAudioSource; // 캠프 파이어 오디오
     public AudioSource sunAudioSource; // 태양 오디오
     public AudioSource moonAudioSource; // 달 오디오
@@ -59,9 +59,12 @@ public class SoundManager : MonoBehaviour
     {
         if (!CharacterManager.Instance.Player.condition.isDead)
         {
-            // 물소리 볼륨 조절(waterDistance 값이 작아지면, 오디오 소리 커짐)
-            float waterDistance = Vector3.Distance(playerTransform, waterAudioSource.transform.position);
-            waterAudioSource.volume = Mathf.Clamp(1 - (waterDistance / maxDistance), 0, waterMaxVolume);
+            // 각 물소리 오디오 소스의 볼륨 조절
+            foreach (AudioSource waterAudioSource in waterAudioSources)
+            {
+                float waterDistance = Vector3.Distance(playerTransform, waterAudioSource.transform.position);
+                waterAudioSource.volume = Mathf.Clamp(1 - (waterDistance / maxDistance), 0, waterMaxVolume);
+            }
 
             // 캠프 파이어 소리 볼륨 조절
             float campfireDistance = Vector3.Distance(playerTransform, campfireAudioSource.transform.position);

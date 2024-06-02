@@ -1,13 +1,14 @@
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class FishMovement : MonoBehaviour
 {
+    public float waitDuration = 1f; // 대기 시간
+    private float moveDuration = 50f; // 이동 시간
+
     private Vector3 startPoint; // 시작 지점
     private Vector3 endPoint; // 도착 지점
-    public float moveDuration = 5f; // 이동 시간
-    public float waitDuration = 5f; // 대기 시간
-
     private Quaternion startRotation; // 시작 회전(90도)
     private Quaternion endRotation; // 도착 회전(-90도)
 
@@ -20,6 +21,7 @@ public class FishMovement : MonoBehaviour
 
     private void Start()
     {
+        moveDuration = Random.Range(30f, 50f);
         // 시작 지점과 도착 지점의 z 값을 -5.2와 3.2 사이에서 랜덤하게 설정
         float startX = Random.Range(-3.92f, -1.34f);
         float endX = Random.Range(-3.92f, -1.34f);
