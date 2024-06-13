@@ -21,7 +21,7 @@ GameObject:
   m_Name: Tent
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 1
   m_StaticEditorFlags: 126
   m_IsActive: 1
 --- !u!4 &3178632202174060391
@@ -223,7 +223,7 @@ GameObject:
   m_Name: bamboo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 1
   m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &5886613628124673589

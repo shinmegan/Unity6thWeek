@@ -5,7 +5,7 @@ using UnityEngine;
 public class ReSpawnResource : MonoBehaviour
 {
     public GameObject spawnableResource;
-    public float reSpawnTime = 5f; // 재생성 대기시간
+    public float reSpawnTime = 60f; // 재생성 대기시간
 
     // Update is called once per frame
     void Update()

@@ -18,9 +18,11 @@ public class ChangeScene : MonoBehaviour
     {
 #if UNITY_EDITOR
         // 에디터 모드에서 게임 종료
+        CheckTime.Instance.TimeToScore();
         EditorApplication.isPlaying = false;
 #else
         // 빌드된 게임에서 게임 종료
+        CheckTime.Instance.TimeToScore();
         Application.Quit();
 #endif
     }

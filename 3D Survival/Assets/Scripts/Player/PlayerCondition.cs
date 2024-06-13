@@ -49,21 +49,27 @@ public class PlayerCondition : MonoBehaviour, IDamagable
         stamina.Add(stamina.passiveValue * Time.deltaTime); // 스테미나 상태 업데이트(증가)
         EnoughStamina(onJumpStaminaDecay * 0.2f); // 점프 스테미나 충분한지 확인
 
-        // 검 장착시 체력 상태 업데이트(증가)
-        if(isEquipSword)
+        // 체력이 0이 되면, 캐릭터 사망
+        if (health.curValue == 0f)
+        {
+            Die();
+            isDead = true;
+        }
+
+        // 검 장착시 체력 상태 업데이트(증가) && 허기 상태 업데이트(증가)
+        if (isEquipSword)
+        {
             health.Add(health.passiveValue * Time.deltaTime); // 체력 상태 업데이트(증가)
+            hunger.Add(hunger.passiveValue * Time.deltaTime); // 허기 상태 업데이트(증가)
+        }
+            
 
         // 배고픔이 0이 되면, 체력이 감소하기 시작
         if (hunger.curValue == 0f)
         {
             health.Subtract(noHungerHealthDecay * Time.deltaTime);
         }
-        // 체력이 0이 되면, 캐릭터 사망
-        if(health.curValue == 0f)
-        {
-            Die();
-            isDead = true;
-        }
+        
         // 점프시 스태미나가 소모
         if(isJumpOn)
         {
@@ -74,6 +80,7 @@ public class PlayerCondition : MonoBehaviour, IDamagable
     // 체력이 소진되면 사망하는 메서드
     public void Die()
     {
+        CheckTime.Instance.TimeToScore();
         Time.timeScale = 0f;
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;

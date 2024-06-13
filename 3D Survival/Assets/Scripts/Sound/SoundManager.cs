@@ -26,6 +26,7 @@ public class SoundManager : MonoBehaviour
     public AudioClip unequipClip;
     public AudioClip equipClip;
     public AudioClip healingClip;
+    public AudioClip faceBearClip;
 
     Vector3 playerTransform { get { return CharacterManager.Instance.Player.playerPosition; } }
 
@@ -158,5 +159,11 @@ public class SoundManager : MonoBehaviour
     public void PlayHealingSound()
     {
         playerAudioSource.PlayOneShot(healingClip, 1f);
+    }
+
+    // 곰 마주친 소리
+    public void PlayFacingSound()
+    {
+        playerAudioSource.PlayOneShot(faceBearClip, 1f);
     }
 }

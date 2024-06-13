@@ -52,10 +52,15 @@ public class PlayerInteraction : MonoBehaviour
             if (Inspectable != null || curInteractable != null) // 둘 중 하나가 존재할 경우
             {
                 if (Inspectable != null)
+                {
                     DisplayObjectInfo(Inspectable); // 환경 정보 표시
+                }
+                    
                 else if(curInteractable != null)
+                {
                     SetItemInfo(curInteractable); // 아이템 정보 표시
-
+                    NPC.Instance.isAlreadyPlayOnce = false;
+                }
             }
             else // 둘 다 존재하지 않을 경우
             {

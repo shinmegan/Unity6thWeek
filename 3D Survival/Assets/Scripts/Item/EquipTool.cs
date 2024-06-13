@@ -19,6 +19,7 @@ public class EquipTool : Equip
 
     private int TreeLayer; // "Tree" 레이어
     private int MushroomLayer; // "Mushroom" 레이어
+    private int BearLayer;
 
     private void Awake()
     {
@@ -26,6 +27,7 @@ public class EquipTool : Equip
         animator = GetComponent<Animator>(); // 애니메이터 컴포넌트 참조
         TreeLayer = LayerMask.NameToLayer("Tree"); // "GreenTree" 레이어 가져오기
         MushroomLayer = LayerMask.NameToLayer("Mushroom");
+        BearLayer = LayerMask.NameToLayer("Bear");
     }
 
     // 공격 입력 처리 함수(애니메이션 동작)
@@ -64,11 +66,27 @@ public class EquipTool : Equip
                 dangerousResource.Gather(hit.point, hit.normal); // 위험한 자원 채집
             }
 
-            if ((doesGatherResources && hit.collider.gameObject.layer != TreeLayer) || (isDangerousResource && hit.collider.gameObject.layer != MushroomLayer) )
+            if (isDangerousResource && hit.collider.gameObject.layer == BearLayer && hit.collider.TryGetComponent(out Resource bearResource))
+            {
+                // 위험한 곰 사냥
+                bearResource.Hunt(hit.point, hit.normal);
+                if (!NPC.Instance.isAlreadyPlayOnce)
+                {
+                    PlayOneShotBear();
+                    NPC.Instance.isAlreadyPlayOnce = true;
+                }
+            }
+
+            if ((doesGatherResources && hit.collider.gameObject.layer != TreeLayer) || (isDangerousResource && hit.collider.gameObject.layer != MushroomLayer && hit.collider.gameObject.layer != BearLayer))
             {
                 SoundManager.Instance.PlayWrongSound();
                 Debug.Log("적합한 도구를 장착해주세요. 나무->도끼 , 버섯->검");
             }
         }
+    }
+
+    void PlayOneShotBear()
+    {
+        SoundManager.Instance.PlayFacingSound();
     }
 }

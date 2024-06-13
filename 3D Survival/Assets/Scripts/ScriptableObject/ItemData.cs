@@ -35,6 +35,7 @@ public class ItemData : ScriptableObject
     public Sprite icon; // 아이콘 이미지
     public GameObject dropPrefab; // 프리팹 정보
 
+
     [Header("Stacking")]
     public bool canStack; // 여러개 소지 가능 여부
     public int maxStackAmount; // 소지 가능 개수
